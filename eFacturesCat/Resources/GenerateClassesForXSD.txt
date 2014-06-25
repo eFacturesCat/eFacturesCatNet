@@ -1,0 +1,15 @@
+﻿Facturaev3_2_unsigned
+=====================
+
+Generated from xsd2code
+
+eFacturesCat-Invoice.cs
+=======================
+
+From Visual Studio Command Prompt ...
+Go to maindoc folder in Resources and execute:
+
+xsd /c /namespace:eFacturesCat.Generate eFacturesCat-Invoice.xsd ..\common\UBL-CommonAggregateComponents-2.1.xsd ..\common\UBL-CommonBasicComponents-2.1.xsd ..\common\UBL-CommonExtensionComponents-2.1.xsd ..\common\UBL-UnqualifiedDataTypes-2.1.xsd ..\common\CCTS_CCT_SchemaModule-2.1.xsd
+ren CCTS_CCT_SchemaModule-2_1.cs eFacturesCat-Invoice.cs
+
+And then from VS, in folder "Resources", "Add existing file"

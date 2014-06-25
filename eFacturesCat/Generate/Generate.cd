@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="eFacturesCat.Generate.Invoice">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <AssociationLine Name="sellerParty" Type="eFacturesCat.Generate.Party">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.065" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAEAQAgAAAIAABgAAEAAAAAAACEAAAAAAIAgA=</HashCode>
+      <FileName>Generate\Invoice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="buyerParty" />
+      <Field Name="sellerParty" />
+      <Field Name="invoiceLines" />
+      <Field Name="taxes" />
+      <Field Name="payments" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="eFacturesCat.Generate.InvoiceLine">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAAIAAAAAAAAAAAgACAAAAAAAAAAAA=</HashCode>
+      <FileName>Generate\InvoiceLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Generate.Party">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAIEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generate\Party.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Generate.Payment">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Generate\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Generate.Tax">
+    <Position X="1.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAA=</HashCode>
+      <FileName>Generate\Tax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

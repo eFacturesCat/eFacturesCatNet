@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Facturas"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Facturas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="factura"/>
+        <xs:element ref="ak"/>
+        <xs:element ref="param1"/>
+        <xs:element ref="param2"/>
+        <xs:element ref="param3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="factura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="base64Document"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="base64Document" type="xs:base64Binary"/>
+  <xs:element name="ak" type="xs:string"/>
+  <xs:element name="param1" type="xs:string"/>
+  <xs:element name="param2" type="xs:string"/>
+  <xs:element name="param3" type="xs:string"/>
+</xs:schema>

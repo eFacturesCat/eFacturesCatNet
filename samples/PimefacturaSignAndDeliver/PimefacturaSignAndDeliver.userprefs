@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PimefacturaSignAndDeliver\Program.cs">
+    <Files>
+      <File FileName="PimefacturaSignAndDeliver\App.config" Line="7" Column="1" />
+      <File FileName="PimefacturaSignAndDeliver\Program.cs" Line="94" Column="35" />
+      <File FileName="PimefacturaSignAndDeliver\Properties\Resources.Designer.cs" Line="1" Column="1" />
+      <File FileName="PimefacturaSignAndDeliver\Properties\AssemblyInfo.cs" Line="35" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="PimefacturaSignAndDeliver" expanded="True" selected="True">
+            <Node name="References" expanded="True" />
+            <Node name="Properties" expanded="True">
+              <Node name="Resources.resx" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="SamplesCommon" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

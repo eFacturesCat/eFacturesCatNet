@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<fe:Facturae xmlns:fe="http://www.facturae.es/Facturae/2009/v3.2/Facturae">
+  <FileHeader>
+    <SchemaVersion>3.2</SchemaVersion>
+    <Modality>I</Modality>
+    <InvoiceIssuerType>EM</InvoiceIssuerType>
+    <Batch>
+      <BatchIdentifier>ESA0000000000092012</BatchIdentifier>
+      <InvoicesCount>1</InvoicesCount>
+      <TotalInvoicesAmount>
+        <TotalAmount>25573.64</TotalAmount>
+        <EquivalentInEuros>25573.64</EquivalentInEuros>
+      </TotalInvoicesAmount>
+      <TotalOutstandingAmount>
+        <TotalAmount>25573.64</TotalAmount>
+        <EquivalentInEuros>25573.64</EquivalentInEuros>
+      </TotalOutstandingAmount>
+      <TotalExecutableAmount>
+        <TotalAmount>25573.64</TotalAmount>
+        <EquivalentInEuros>25573.64</EquivalentInEuros>
+      </TotalExecutableAmount>
+      <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+    </Batch>
+  </FileHeader>
+  <Parties>
+    <SellerParty>
+      <TaxIdentification>
+        <PersonTypeCode>J</PersonTypeCode>
+        <ResidenceTypeCode>R</ResidenceTypeCode>
+        <TaxIdentificationNumber>ESA00000000</TaxIdentificationNumber>
+      </TaxIdentification>
+      <PartyIdentification>0000000</PartyIdentification>
+      <LegalEntity>
+        <CorporateName>Seller Entity Inc</CorporateName>
+        <AddressInSpain>
+          <Address>Small Street</Address>
+          <PostCode>08034</PostCode>
+          <Town>Barcelona</Town>
+          <Province>BARCELONA</Province>
+          <CountryCode>ESP</CountryCode>
+        </AddressInSpain>
+      </LegalEntity>
+    </SellerParty>
+    <BuyerParty>
+      <TaxIdentification>
+        <PersonTypeCode>J</PersonTypeCode>
+        <ResidenceTypeCode>R</ResidenceTypeCode>
+        <TaxIdentificationNumber>ESB84009240</TaxIdentificationNumber>
+      </TaxIdentification>
+      <LegalEntity>
+        <CorporateName>Buyer Entity Inc</CorporateName>
+        <AddressInSpain>
+          <Address>Big Street</Address>
+          <PostCode>08034</PostCode>
+          <Town>Barcelona</Town>
+          <Province>BARCELONA</Province>
+          <CountryCode>ESP</CountryCode>
+        </AddressInSpain>
+        <ContactDetails>
+          <ElectronicMail>me@sntc.eu</ElectronicMail>
+          <AdditionalContactDetails>CustomerID-1</AdditionalContactDetails>
+        </ContactDetails>
+      </LegalEntity>
+    </BuyerParty>
+  </Parties>
+  <Invoices>
+    <Invoice>
+      <InvoiceHeader>
+        <InvoiceNumber>0009</InvoiceNumber>
+        <InvoiceSeriesCode>2012</InvoiceSeriesCode>
+        <InvoiceDocumentType>FC</InvoiceDocumentType>
+        <InvoiceClass>OO</InvoiceClass>
+      </InvoiceHeader>
+      <InvoiceIssueData>
+        <IssueDate>2012-01-15</IssueDate>
+        <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+        <TaxCurrencyCode>EUR</TaxCurrencyCode>
+        <LanguageName>ca</LanguageName>
+      </InvoiceIssueData>
+      <TaxesOutputs>
+        <Tax>
+          <TaxTypeCode>01</TaxTypeCode>
+          <TaxRate>0.00</TaxRate>
+          <TaxableBase>
+            <TotalAmount>19809.86</TotalAmount>
+            <EquivalentInEuros>19809.86</EquivalentInEuros>
+          </TaxableBase>
+          <TaxAmount>
+            <TotalAmount>0.00</TotalAmount>
+            <EquivalentInEuros>0.00</EquivalentInEuros>
+          </TaxAmount>
+        </Tax>
+        <Tax>
+          <TaxTypeCode>01</TaxTypeCode>
+          <TaxRate>18.00</TaxRate>
+          <TaxableBase>
+            <TotalAmount>4884.56</TotalAmount>
+            <EquivalentInEuros>4884.56</EquivalentInEuros>
+          </TaxableBase>
+          <TaxAmount>
+            <TotalAmount>879.22</TotalAmount>
+            <EquivalentInEuros>879.22</EquivalentInEuros>
+          </TaxAmount>
+        </Tax>
+      </TaxesOutputs>
+      <InvoiceTotals>
+        <TotalGrossAmount>24694.42</TotalGrossAmount>
+        <TotalGeneralDiscounts>0.00</TotalGeneralDiscounts>
+        <TotalGrossAmountBeforeTaxes>24694.42</TotalGrossAmountBeforeTaxes>
+        <TotalTaxOutputs>879.22</TotalTaxOutputs>
+        <TotalTaxesWithheld>0.00</TotalTaxesWithheld>
+        <InvoiceTotal>25573.64</InvoiceTotal>
+        <TotalOutstandingAmount>25573.64</TotalOutstandingAmount>
+        <TotalExecutableAmount>25573.64</TotalExecutableAmount>
+      </InvoiceTotals>
+      <Items>
+        <InvoiceLine>
+          <IssuerContractReference />
+          <IssuerTransactionReference />
+          <ReceiverContractReference />
+          <ReceiverTransactionReference>900009278</ReceiverTransactionReference>
+          <SequenceNumber>10000</SequenceNumber>
+          <ItemDescription>Item Description Sequence 10000</ItemDescription>
+          <Quantity>1.00</Quantity>
+          <UnitPriceWithoutTax>4884.560000</UnitPriceWithoutTax>
+          <TotalCost>4884.560000</TotalCost>
+          <GrossAmount>4884.560000</GrossAmount>
+          <TaxesOutputs>
+            <Tax>
+              <TaxTypeCode>01</TaxTypeCode>
+              <TaxRate>18.00</TaxRate>
+              <TaxableBase>
+                <TotalAmount>4884.56</TotalAmount>
+                <EquivalentInEuros>4884.56</EquivalentInEuros>
+              </TaxableBase>
+              <TaxAmount>
+                <TotalAmount>879.22</TotalAmount>
+                <EquivalentInEuros>879.22</EquivalentInEuros>
+              </TaxAmount>
+            </Tax>
+          </TaxesOutputs>
+          <TransactionDate>2012-01-15</TransactionDate>
+          <AdditionalLineItemInformation />
+        </InvoiceLine>
+        <InvoiceLine>
+          <IssuerContractReference />
+          <IssuerTransactionReference />
+          <ReceiverContractReference />
+          <ReceiverTransactionReference>900009278</ReceiverTransactionReference>
+          <SequenceNumber>20000</SequenceNumber>
+          <ItemDescription>Description 20000</ItemDescription>
+          <Quantity>1.00</Quantity>
+          <UnitPriceWithoutTax>19809.860000</UnitPriceWithoutTax>
+          <TotalCost>19809.860000</TotalCost>
+          <GrossAmount>19809.860000</GrossAmount>
+          <TaxesOutputs>
+            <Tax>
+              <TaxTypeCode>01</TaxTypeCode>
+              <TaxRate>0.00</TaxRate>
+              <TaxableBase>
+                <TotalAmount>19809.86</TotalAmount>
+                <EquivalentInEuros>19809.86</EquivalentInEuros>
+              </TaxableBase>
+              <TaxAmount>
+                <TotalAmount>0.00</TotalAmount>
+                <EquivalentInEuros>0.00</EquivalentInEuros>
+              </TaxAmount>
+            </Tax>
+          </TaxesOutputs>
+          <TransactionDate>2012-01-15</TransactionDate>
+          <AdditionalLineItemInformation>Add. Line Information</AdditionalLineItemInformation>
+        </InvoiceLine>
+      </Items>
+      <PaymentDetails>
+        <Installment>
+          <InstallmentDueDate>2012-02-17</InstallmentDueDate>
+          <InstallmentAmount>25573.64</InstallmentAmount>
+          <PaymentMeans>04</PaymentMeans>
+          <AccountToBeCredited>
+            <AccountNumber>00000000000000000000</AccountNumber>
+          </AccountToBeCredited>
+        </Installment>
+      </PaymentDetails>
+      <AdditionalData>
+        <InvoiceAdditionalInformation>Invoice Additional Information</InvoiceAdditionalInformation>
+      </AdditionalData>
+    </Invoice>
+  </Invoices>
+  <Signature Id="Signature_1" xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo Id="Signature_1_SignedInfo_1">
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference Id="Signature_1_Reference_1" URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>j4AEEhSJrPsrLXHPcwTbob1iDFc=</DigestValue>
+      </Reference>
+      <Reference Id="Signature_1_Reference_2" URI="#Signature_1_SignedProperties_1" Type="http://uri.etsi.org/01903#SignedProperties">
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>R+0paKqHgFu7sKc35qVoDCJqYK0=</DigestValue>
+      </Reference>
+      <Reference Id="Signature_1_Reference_3" URI="#Signature_1_KeyInfo_1">
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>/QyWrzYLAmJ033MIyCZ74t2Mqck=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>V6gdCHc7CNiFQ1vADmWlnyTPGI+OQntrXY72mjngYngB6AQ0I/oTUDyCOafzphv6tO6gBSwRn63qFZaHGtS4382BInkW3J224RskElUUHyaOP72CIl0G+Xz+Si6xpf3BgDdfSEZuzTsbjmzf1zwfdd0gOXAhR68o5E4EDZVlDoM=</SignatureValue>
+    <KeyInfo Id="Signature_1_KeyInfo_1">
+      <X509Data>
+        <X509Certificate>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</X509Certificate>
+      </X509Data>
+      <KeyValue>
+        <RSAKeyValue>
+          <Modulus>o9vqmMUMmgbbj5QVqeeF5M4LCxXQd0twawZDEDo1Qc9tC/YXDNHGgfnbcdYhCI+vOprGu7cbAjjtV7ZhmSX6m1CT7W05IKgoeDkxfeLnvA8zCgMWPKGzNkKtr6aInL1LgaP2lsFeFcor9xfjXAfm4dz+HeJhbSSvh+6auVT5f7s=</Modulus>
+          <Exponent>AQAB</Exponent>
+        </RSAKeyValue>
+      </KeyValue>
+    </KeyInfo>
+    <Object Id="Signature_1_Object_2">
+      <QualifyingProperties Id="Signature_1_QualifyingProperties_1" Target="#Signature_1" xmlns="http://uri.etsi.org/01903/v1.3.2#">
+        <SignedProperties Id="Signature_1_SignedProperties_1">
+          <SignedSignatureProperties Id="Signature_1_SignedSignatureProperties_1">
+            <SigningTime>2012-01-17T19:13:59+01:00</SigningTime>
+            <SigningCertificate>
+              <Cert>
+                <CertDigest>
+                  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" xmlns="http://www.w3.org/2000/09/xmldsig#" />
+                  <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">lv6t8C9i9f6Tdcw+1cj1i4Or3+4=</DigestValue>
+                </CertDigest>
+                <IssuerSerial>
+                  <X509IssuerName xmlns="http://www.w3.org/2000/09/xmldsig#">CN=AC Firmaprofesional - CA1,O=Firmaprofesional S.A. NIF A-62634068,OU=Jerarquia de Certificacion Firmaprofesional,OU=Consulte http://www.firmaprofesional.com,L=C/ Muntaner 244 Barcelona,1.2.840.113549.1.9.1=ca1@firmaprofesional.com,C=ES</X509IssuerName>
+                  <X509SerialNumber xmlns="http://www.w3.org/2000/09/xmldsig#">9215786082686051791</X509SerialNumber>
+                </IssuerSerial>
+              </Cert>
+            </SigningCertificate>
+            <SignaturePolicyIdentifier>
+              <SignaturePolicyId>
+                <SigPolicyId>
+                  <Identifier Qualifier="OIDAsURI">http://www.facturae.es/politica_de_firma_formato_facturae/politica_de_firma_formato_facturae_v3_1.pdf</Identifier>
+                  <Description>Política de firma electrónica para facturación electrónica con formato Facturae</Description>
+                </SigPolicyId>
+                <SigPolicyHash>
+                  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" xmlns="http://www.w3.org/2000/09/xmldsig#" />
+                  <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">Ohixl6upD6av8N7pEvDABhEL6hM=</DigestValue>
+                </SigPolicyHash>
+              </SignaturePolicyId>
+            </SignaturePolicyIdentifier>
+            <signerRole>
+              <ClaimedRoles>
+                <ClaimedRole>Issuer</ClaimedRole>
+              </ClaimedRoles>
+            </signerRole>
+          </SignedSignatureProperties>
+        </SignedProperties>
+      </QualifyingProperties>
+    </Object>
+  </Signature>
+</fe:Facturae>

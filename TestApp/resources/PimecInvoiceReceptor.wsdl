@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://Service.Reception.Invoice.Pimec" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Service.Reception.Invoice.Pimec">
+    <wsdl:documentation>PimecInvoiceReceptor</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://Service.Reception.Invoice.Pimec">
+            <xs:element name="hello">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="helloResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="summitInvoice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="omrequest" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="summitInvoiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="helloRequest">
+        <wsdl:part name="parameters" element="ns:hello"/>
+    </wsdl:message>
+    <wsdl:message name="helloResponse">
+        <wsdl:part name="parameters" element="ns:helloResponse"/>
+    </wsdl:message>
+    <wsdl:message name="summitInvoiceRequest">
+        <wsdl:part name="parameters" element="ns:summitInvoice"/>
+    </wsdl:message>
+    <wsdl:message name="summitInvoiceResponse">
+        <wsdl:part name="parameters" element="ns:summitInvoiceResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PimecInvoiceReceptorPortType">
+        <wsdl:operation name="hello">
+            <wsdl:input message="ns:helloRequest" wsaw:Action="urn:hello"/>
+            <wsdl:output message="ns:helloResponse" wsaw:Action="urn:helloResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="summitInvoice">
+            <wsdl:input message="ns:summitInvoiceRequest" wsaw:Action="urn:summitInvoice"/>
+            <wsdl:output message="ns:summitInvoiceResponse" wsaw:Action="urn:summitInvoiceResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PimecInvoiceReceptorSoap11Binding" type="ns:PimecInvoiceReceptorPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hello">
+            <soap:operation soapAction="urn:hello" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="summitInvoice">
+            <soap:operation soapAction="urn:summitInvoice" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PimecInvoiceReceptorSoap12Binding" type="ns:PimecInvoiceReceptorPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hello">
+            <soap12:operation soapAction="urn:hello" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="summitInvoice">
+            <soap12:operation soapAction="urn:summitInvoice" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PimecInvoiceReceptorHttpBinding" type="ns:PimecInvoiceReceptorPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="hello">
+            <http:operation location="PimecInvoiceReceptor/hello"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="hello"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="hello"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="summitInvoice">
+            <http:operation location="PimecInvoiceReceptor/summitInvoice"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="summitInvoice"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="summitInvoice"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PimecInvoiceReceptor">
+        <wsdl:port name="PimecInvoiceReceptorHttpSoap11Endpoint" binding="ns:PimecInvoiceReceptorSoap11Binding">
+            <soap:address location="http://82.223.209.146:80/axis2/services/PimecInvoiceReceptor.PimecInvoiceReceptorHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="PimecInvoiceReceptorHttpSoap12Endpoint" binding="ns:PimecInvoiceReceptorSoap12Binding">
+            <soap12:address location="http://82.223.209.146:80/axis2/services/PimecInvoiceReceptor.PimecInvoiceReceptorHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="PimecInvoiceReceptorHttpEndpoint" binding="ns:PimecInvoiceReceptorHttpBinding">
+            <http:address location="http://82.223.209.146:80/axis2/services/PimecInvoiceReceptor.PimecInvoiceReceptorHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

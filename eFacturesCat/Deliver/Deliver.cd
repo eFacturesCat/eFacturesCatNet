@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="eFacturesCat.Deliver.DeliverInvoice">
+    <Position X="6" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAEAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Deliver\DeliverInvoice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="xmlInvoice" />
+      <Field Name="endPoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="eFacturesCat.Deliver.EndPoint">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Deliver\EndPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Deliver.EndPointEmail" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Deliver\EndPointEmail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Transform.XMLInvoice" Collapsed="true">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAAAACAAACAAAACAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Transform\XMLInvoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Deliver.Pimefactura.EndPointPimefactura" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAQCA=</HashCode>
+      <FileName>Deliver\Pimefactura\EndPointPimefactura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

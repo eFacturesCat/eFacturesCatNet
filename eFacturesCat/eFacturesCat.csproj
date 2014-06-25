@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eFacturesCat</RootNamespace>
+    <AssemblyName>eFacturesCat</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commons\Constants.cs" />
+    <Compile Include="Commons\Response.cs" />
+    <Compile Include="Commons\EFacturesException.cs" />
+    <Compile Include="Commons\TestConstants.cs" />
+    <Compile Include="Commons\Utils.cs" />
+    <Compile Include="Deliver\DeliverInvoice.cs" />
+    <Compile Include="Deliver\DeliverResponse.cs" />
+    <Compile Include="Deliver\EndPointEmail.cs" />
+    <Compile Include="Deliver\Pimefactura\DeliverResponsePimefactura.cs" />
+    <Compile Include="Deliver\Pimefactura\EndPointPimefactura.cs" />
+    <Compile Include="Deliver\EndPoint.cs" />
+    <Compile Include="Deliver\Pimefactura\PimecInvoiceReceptor.cs" />
+    <Compile Include="Deliver\Pimefactura\PimefacturaWsXml.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\eFacturesCat-Invoice.cs" />
+    <Compile Include="Resources\Facturaev3_2_unsigned.designer.cs" />
+    <Compile Include="Secure\SecuredFacturae3_2.cs" />
+    <Compile Include="Secure\SecuredInvoice.cs" />
+    <Compile Include="Secure\CertUtils.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="Transform\Facturae_3_2.cs" />
+    <Compile Include="Generate\Invoice.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transform\XMLInvoice.cs" />
+    <Compile Include="Secure\XAdES-EPES_facturae.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deliver\Deliver.cd" />
+    <None Include="Generate\Generate.cd" />
+    <None Include="Resources\common\CCTS_CCT_SchemaModule-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-CommonAggregateComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-CommonBasicComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-CommonExtensionComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-CommonSignatureComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-CoreComponentParameters-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-ExtensionContentDataType-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-QualifiedDataTypes-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-SignatureAggregateComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-SignatureBasicComponents-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-UnqualifiedDataTypes-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-XAdESv132-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-XAdESv141-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\common\UBL-xmldsig-core-schema-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Facturaev3_2_unsigned.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\maindoc\eFacturesCat-Invoice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Secure\Secure.cd" />
+    <None Include="Session.cd" />
+    <None Include="Transform\Transform.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transform\facturae32\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\GenerateClassesForXSD.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eFacturesCat2Facturae32\eFacturesCat2Facturae32.csproj">
+      <Project>{13C6A34A-2BFF-4065-AC8F-9E8BD4DE966F}</Project>
+      <Name>eFacturesCat2Facturae32</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

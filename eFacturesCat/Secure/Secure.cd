@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="eFacturesCat.Secure.SecuredInvoice">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAABAAAAAAAAAAAIAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Secure\SecuredInvoice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="xmlInvoice" />
+      <Property Name="xmlInvoiceSecured" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="eFacturesCat.Transform.XMLInvoice" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAAAACAAACAAAACAAAAAEAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Transform\XMLInvoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Security.Cryptography.X509Certificates.X509Certificate2" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Security.Cryptography.Xml.SignedXml" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="eFacturesCat.Secure.SecuredFacturae3_2" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Secure\SecuredFacturae3_2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Secure.XAdES_EPES_facturae" Collapsed="true">
+    <Position X="7" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAACAQAAAgAAAAAAAAAAAAEgAAAgA=</HashCode>
+      <FileName>Secure\XAdES-EPES_facturae.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eFacturesCat.Secure.SignedXml_XAdES_version" Collapsed="true">
+    <Position X="7" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAKAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Secure\XAdES-EPES_facturae.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
