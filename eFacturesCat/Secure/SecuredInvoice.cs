@@ -52,9 +52,25 @@ namespace eFacturesCat.Secure
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(xmlInvoice.xmlInputStream);
             xmlDoc.PreserveWhitespace = true;
-            // Only facturae signature policy is now implemented
+            // Eliminate innecesary namespaces (xsi)
+            removeInnecessaryAttributes(xmlDoc.DocumentElement.Attributes);
             XAdES_EPES_facturae xmlSignature = new XAdES_EPES_facturae(xmlDoc, eFacturesCat.Commons.Constants.ROLE, cert);
             xmlInvoiceSecured = (XMLInvoice)Activator.CreateInstance(xmlInvoice.GetType(), new Object[] {xmlDoc});
+        }
+
+        private XmlAttributeCollection removeInnecessaryAttributes(XmlAttributeCollection attr)
+        {
+            foreach (XmlAttribute att in attr)
+            {
+                if (att.Name.Contains("xsi"))
+                {
+                    attr.Remove(att);
+                    removeInnecessaryAttributes(attr);
+                    break;
+                }
+
+            }
+            return attr;
         }
     }
 }

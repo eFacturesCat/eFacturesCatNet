@@ -14,7 +14,7 @@ namespace eFacturesCat.Secure
     /// Facturae signature policy is available at: http://www.facturae.es/politica_de_firma_formato_facturae/politica_de_firma_formato_facturae_v3_1.pdf
     /// </summary>
     /// <author>@santicasas: Santi Casas</author>
-    /// <remarks>Especial thanks to @albalia, @julianinza and @jlc_eljuss for give me the knoweldge required to build this code</remarks>
+    /// <remarks>Special thanks to @albalia, @julianinza and @jlc_eljuss for give me the knoweldge required to build this code</remarks>
     public class XAdES_EPES_facturae
     {
         /// <summary>
@@ -33,6 +33,7 @@ namespace eFacturesCat.Secure
             try
             {
                 //TODO: Optional previus certificate check
+
 
                 KeyInfo keyInfo = CertUtils.getKeyInfo(cert);
                 XmlDocument xmlSignedProperties = new XmlDocument();
@@ -265,7 +266,7 @@ namespace eFacturesCat.Secure
         }
 
         /// <summary>
-        /// Generate and get a XAdES-EPES singature structure
+        /// Generate and get a XAdES-EPES signature structure
         /// </summary>
         /// <param name="doc">XmlDocument to be created element</param>
         /// <param name="certificate">Signing Certificate</param>

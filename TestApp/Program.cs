@@ -26,7 +26,7 @@ namespace TestApp
             Encoding utf8 = Encoding.UTF8;
 
             // *** Testing schemas
-
+            /*
             string[] invoicesPath = Directory.GetFiles("C:\\tmp\\psd\\signed", "*.xml");
             foreach (string fileName in invoicesPath)
             {
@@ -40,11 +40,12 @@ namespace TestApp
             }
 
             // ***
-
+            */
 
 
             //Invoice inv = new Invoice(TestConstants.eFacturesCatFileName);
             
+            /*
             // Instance Invoice
             Invoice inv = new Invoice("EUR", "es", 6, 2, false); // Euros, español, 6 decimals on lines, 2 decimals on totals, not CreditNote
             //Invoice inv = new Invoice("EUR", "es", 6, 2, true); // Euros, español, 6 decimals on lines, 2 decimals on totals, CreditNote
@@ -127,7 +128,7 @@ namespace TestApp
             StreamReader reader = EFacturesCat2Facturae32.TransformEFacturesCat2Facturae32(inv.getStreamReader());
             //String xmlFe32 = reader.ReadToEnd();
             //Console.WriteLine(xmlFe32);
-
+            
             //Try to sing and send
             X509Certificate2 cert = new X509Certificate2(TestConstants.pkcs12_fileName, TestConstants.pkcs12_password);
             //X509Certificate2 cert = CertUtils.selectCertificateFromWindowsStore("Certificats disponibles", "Seleccioni un certificat");
@@ -138,7 +139,7 @@ namespace TestApp
 
             //String ValidatedID_ak = "5941fcefd748bffc7b2a7b8238ae9094"; //**VALIDATEDID**
             //EndPointPimefactura epp = new EndPointPimefactura(ValidatedID_ak, TestConstants.environment);
-            //EndPointPimefactura epp = new EndPointPimefactura(ValidatedID_ak, Constants.prod_environment); //**VALIDATEDID**/
+            //EndPointPimefactura epp = new EndPointPimefactura(ValidatedID_ak, Constants.prod_environment); //**VALIDATEDID*
             EndPointPimefactura epp = new EndPointPimefactura(TestConstants.AK_test, TestConstants.environment);
             //XMLInvoice invoice = new Facturae_3_2(TestConstants.fileNameSigned);
             //invoice.deserialize();
@@ -148,7 +149,8 @@ namespace TestApp
 
 
             Console.ReadLine();
-            /*
+           */
+            
             // Test sign Invoice
             SecuredFacturae3_2 sFe32 = null;
             X509Certificate2 cert = new X509Certificate2(TestConstants.pkcs12_fileName, TestConstants.pkcs12_password);
@@ -159,7 +161,7 @@ namespace TestApp
             Console.WriteLine("Invoice Signed");
 
             // Test send Invoice
-
+            /*
             //EndPointPimefactura epp = new EndPointPimefactura(TestConstants.AK_test, TestConstants.environment);
             EndPointEmail epp = new EndPointEmail("smtp.gmail.com", 587, "efacturescat@santicasas.net","pimefactura");
 
@@ -172,10 +174,10 @@ namespace TestApp
             DeliverInvoice di = new DeliverInvoice(invoice, epp);
             DeliverResponse dr = di.deliverInvoice();
             Console.WriteLine("Result = " + dr.result + " " + dr.description + " " + dr.longDescription);
-
+            */
 
             Console.ReadLine();
-            */
+           
 
 
         }

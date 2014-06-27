@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?><?xml-stylesheet type="text/xsl" href="http://www.eurowin.com/facturae/facturaeaeat32.xsl"?>
+<fe:Facturae xmlns:fe="http://www.facturae.es/Facturae/2009/v3.2/Facturae" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.facturae.es/Facturae/2009/v3.2/Facturae">
+<FileHeader>
+<SchemaVersion>3.2</SchemaVersion>
+<Modality>I</Modality>
+<InvoiceIssuerType>EM</InvoiceIssuerType>
+<Batch>
+	<BatchIdentifier>140003</BatchIdentifier>
+	<InvoicesCount>1</InvoicesCount>
+	<TotalInvoicesAmount>
+		<TotalAmount>67.78</TotalAmount>
+	</TotalInvoicesAmount>
+	<TotalOutstandingAmount>
+		<TotalAmount>67.78</TotalAmount>
+	</TotalOutstandingAmount>
+	<TotalExecutableAmount>
+		<TotalAmount>67.78</TotalAmount>
+	</TotalExecutableAmount>
+	<InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+</Batch>
+
+</FileHeader>
+<Parties>
+<SellerParty>
+<TaxIdentification>
+	<PersonTypeCode>J</PersonTypeCode>
+	<ResidenceTypeCode>R</ResidenceTypeCode>
+	<TaxIdentificationNumber>ESB17990078</TaxIdentificationNumber>
+</TaxIdentification>
+<LegalEntity>
+	<CorporateName>GLOBALIMAR EUROPA SL</CorporateName>
+	<AddressInSpain>
+		<Address>APART. CORREOS nº 53 C/ JAUME I, 2A</Address>
+		<PostCode>17240</PostCode>
+		<Town>LLAGOSTERA</Town>
+		<Province>GIRONA - SPAIN</Province>
+		<CountryCode>ESP</CountryCode>
+	</AddressInSpain>
+
+	<ContactDetails>
+		<Telephone>972832228</Telephone>
+		<TeleFax>972832113</TeleFax>
+		<WebAddress>www.globalimar.com</WebAddress>
+		<ElectronicMail>info@globalimar.com</ElectronicMail>
+	</ContactDetails>
+</LegalEntity>
+</SellerParty>
+
+<BuyerParty>
+<TaxIdentification>
+	<PersonTypeCode>J</PersonTypeCode>
+	<ResidenceTypeCode>R</ResidenceTypeCode>
+	<TaxIdentificationNumber>ESA28017895</TaxIdentificationNumber>
+</TaxIdentification>
+<PartyIdentification>43000483</PartyIdentification>
+<LegalEntity>
+	<CorporateName>EL CORTE INGLES, SA</CorporateName>
+	<AddressInSpain>
+		<Address>HERMOSILLA, 112</Address>
+		<PostCode>28009</PostCode>
+		<Town>MADRID</Town>
+		<Province>MADRID</Province>
+		<CountryCode>ESP</CountryCode>
+	</AddressInSpain>
+
+	<ContactDetails>
+		<Telephone>914018500</Telephone>
+		<TeleFax>914013186</TeleFax>
+		<WebAddress></WebAddress>
+		<ElectronicMail>mario@infoambit.com</ElectronicMail>
+	</ContactDetails>
+</LegalEntity>
+</BuyerParty>
+</Parties>
+
+<Invoices>
+<Invoice>
+<InvoiceHeader>
+	<InvoiceNumber>140003</InvoiceNumber>
+	<InvoiceSeriesCode></InvoiceSeriesCode>
+	<InvoiceDocumentType>FC</InvoiceDocumentType>
+	<InvoiceClass>OO</InvoiceClass>
+</InvoiceHeader>
+
+<InvoiceIssueData>
+	<IssueDate>2014-01-02</IssueDate>
+	<InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+	<TaxCurrencyCode>EUR</TaxCurrencyCode>
+	<LanguageName>es</LanguageName> 
+</InvoiceIssueData>
+
+<TaxesOutputs>
+		<Tax>
+			<TaxTypeCode>01</TaxTypeCode>
+			<TaxRate>10.00</TaxRate>
+			<TaxableBase>
+				<TotalAmount>61.62</TotalAmount>
+			</TaxableBase>
+			<TaxAmount>
+				<TotalAmount>6.16</TotalAmount>
+			</TaxAmount>
+		</Tax>
+
+
+</TaxesOutputs>
+
+<InvoiceTotals>
+	<TotalGrossAmount>61.93</TotalGrossAmount>
+			<GeneralDiscounts>
+			<Discount>
+				<DiscountReason>Descuento Pronto Pago</DiscountReason>
+				<DiscountRate>0.5000</DiscountRate>
+				<DiscountAmount>0.310000</DiscountAmount>
+			</Discount>
+		</GeneralDiscounts>		<TotalGeneralDiscounts>0.31</TotalGeneralDiscounts>
+	<TotalGrossAmountBeforeTaxes>61.62</TotalGrossAmountBeforeTaxes>
+	<TotalTaxOutputs>6.16</TotalTaxOutputs>
+	<TotalTaxesWithheld>0.00</TotalTaxesWithheld>
+	<InvoiceTotal>67.78</InvoiceTotal>
+	<TotalOutstandingAmount>67.78</TotalOutstandingAmount>
+	<TotalExecutableAmount>67.78</TotalExecutableAmount>
+</InvoiceTotals>
+
+<Items>
+		<InvoiceLine>
+		<DeliveryNotesReferences>
+			<DeliveryNote>
+				<DeliveryNoteNumber>64</DeliveryNoteNumber>
+				<DeliveryNoteDate>2014-01-05</DeliveryNoteDate>
+			</DeliveryNote>
+		</DeliveryNotesReferences>
+		<ItemDescription>CALAMAR LIMPIO INDIA ALIGATOR IQF|C: 3.000000</ItemDescription>
+		<Quantity>18.0000</Quantity>
+		<UnitPriceWithoutTax>4.140000</UnitPriceWithoutTax>
+		<TotalCost>74.520000</TotalCost>
+					<DiscountsAndRebates>
+								<Discount>
+				<DiscountReason>Descuento lineal</DiscountReason>
+				<DiscountRate>16.9000</DiscountRate>
+				<DiscountAmount>12.590000</DiscountAmount>
+				</Discount>
+				
+			</DiscountsAndRebates>
+		<GrossAmount>61.930000</GrossAmount>
+		<TaxesOutputs>
+			<Tax>
+				<TaxTypeCode>01</TaxTypeCode>
+				<TaxRate>10.00</TaxRate>
+				<TaxableBase>
+					<TotalAmount>61.93</TotalAmount>
+				</TaxableBase>
+				<TaxAmount>
+					<TotalAmount>6.16</TotalAmount>
+				</TaxAmount>
+			</Tax>
+			
+		</TaxesOutputs>
+		<ArticleCode>30053418</ArticleCode>
+	</InvoiceLine>
+	<InvoiceLine>
+		<DeliveryNotesReferences>
+			<DeliveryNote>
+				<DeliveryNoteNumber>64</DeliveryNoteNumber>
+				<DeliveryNoteDate>2014-01-05</DeliveryNoteDate>
+			</DeliveryNote>
+		</DeliveryNotesReferences>
+		<ItemDescription>PEDIDO Nº: 41952001</ItemDescription>
+		<Quantity>0.0000</Quantity>
+		<UnitPriceWithoutTax>0.000000</UnitPriceWithoutTax>
+		<TotalCost>0.000000</TotalCost>
+		
+		<GrossAmount>0.000000</GrossAmount>
+		<TaxesOutputs>
+			<Tax>
+				<TaxTypeCode>01</TaxTypeCode>
+				<TaxRate>0.00</TaxRate>
+				<TaxableBase>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxableBase>
+				<TaxAmount>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxAmount>
+			</Tax>
+			
+		</TaxesOutputs>
+		<ArticleCode></ArticleCode>
+	</InvoiceLine>
+	<InvoiceLine>
+		<DeliveryNotesReferences>
+			<DeliveryNote>
+				<DeliveryNoteNumber>64</DeliveryNoteNumber>
+				<DeliveryNoteDate>2014-01-05</DeliveryNoteDate>
+			</DeliveryNote>
+		</DeliveryNotesReferences>
+		<ItemDescription>FECHA ENTREGA 03/01/2014</ItemDescription>
+		<Quantity>0.0000</Quantity>
+		<UnitPriceWithoutTax>0.000000</UnitPriceWithoutTax>
+		<TotalCost>0.000000</TotalCost>
+		
+		<GrossAmount>0.000000</GrossAmount>
+		<TaxesOutputs>
+			<Tax>
+				<TaxTypeCode>01</TaxTypeCode>
+				<TaxRate>0.00</TaxRate>
+				<TaxableBase>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxableBase>
+				<TaxAmount>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxAmount>
+			</Tax>
+			
+		</TaxesOutputs>
+		<ArticleCode></ArticleCode>
+	</InvoiceLine>
+	<InvoiceLine>
+		<DeliveryNotesReferences>
+			<DeliveryNote>
+				<DeliveryNoteNumber>64</DeliveryNoteNumber>
+				<DeliveryNoteDate>2014-01-05</DeliveryNoteDate>
+			</DeliveryNote>
+		</DeliveryNotesReferences>
+		<ItemDescription>Nº PROVEEDOR; 0523563</ItemDescription>
+		<Quantity>0.0000</Quantity>
+		<UnitPriceWithoutTax>0.000000</UnitPriceWithoutTax>
+		<TotalCost>0.000000</TotalCost>
+		
+		<GrossAmount>0.000000</GrossAmount>
+		<TaxesOutputs>
+			<Tax>
+				<TaxTypeCode>01</TaxTypeCode>
+				<TaxRate>0.00</TaxRate>
+				<TaxableBase>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxableBase>
+				<TaxAmount>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxAmount>
+			</Tax>
+			
+		</TaxesOutputs>
+		<ArticleCode></ArticleCode>
+	</InvoiceLine>
+	<InvoiceLine>
+		<DeliveryNotesReferences>
+			<DeliveryNote>
+				<DeliveryNoteNumber>64</DeliveryNoteNumber>
+				<DeliveryNoteDate>2014-01-05</DeliveryNoteDate>
+			</DeliveryNote>
+		</DeliveryNotesReferences>
+		<ItemDescription>TTES. CEFRUSA</ItemDescription>
+		<Quantity>0.0000</Quantity>
+		<UnitPriceWithoutTax>0.000000</UnitPriceWithoutTax>
+		<TotalCost>0.000000</TotalCost>
+		
+		<GrossAmount>0.000000</GrossAmount>
+		<TaxesOutputs>
+			<Tax>
+				<TaxTypeCode>01</TaxTypeCode>
+				<TaxRate>0.00</TaxRate>
+				<TaxableBase>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxableBase>
+				<TaxAmount>
+					<TotalAmount>0.00</TotalAmount>
+				</TaxAmount>
+			</Tax>
+			
+		</TaxesOutputs>
+		<ArticleCode></ArticleCode>
+	</InvoiceLine>
+
+</Items>
+
+<PaymentDetails>
+		<Installment>
+		<InstallmentDueDate>2014-02-01</InstallmentDueDate>
+		<InstallmentAmount>67.78</InstallmentAmount>
+		<PaymentMeans>09</PaymentMeans>
+		<AccountToBeCredited>
+  			<IBAN>ES82 </IBAN>
+  		</AccountToBeCredited>
+	</Installment>
+</PaymentDetails>
+
+</Invoice>
+</Invoices>
+</fe:Facturae>
