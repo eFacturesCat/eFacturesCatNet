@@ -59,14 +59,12 @@ namespace TestApp
             // Set Seller Party
             //PartyType sellerParty = inv.setSellerParty("ESA00000000", "Seller Entity Inc", "Small Street", "Barcelona", "08034", "BARCELONA","ES", null, "0000000");
             PartyType sellerParty = inv.setSellerPersonParty("ESA00000000", "John", "Smith", "Small Street", "Barcelona", "08034", "BARCELONA", "ES", null, "0000000");
-            //PartyType sellerParty = inv.setSellerParty("ESB65750721", "VALIDATED ID, S.L.", "Pardal 6", "Terrassa", "08224", "BARCELONA", "ES", "invoices@validatedid.com", null); //**VALIDATEDID**
 
             // Set Buyer Party
             PartyType buyerParty = inv.setBuyerParty("ES12345678Z", "Buyer Entity Inc", "Big Street", "Barcelona", "08034", "BARCELONA", "ES", "me@sntc.eu", "Desc Centro Entrega", "CustomerID-1");
             buyerParty.PostalAddress = new AddressType();
             inv.createAddress(buyerParty.PostalAddress, "Postal Adress", "Postal Town", "08000", "BARCELONA", "ES");
             
-            //PartyType buyerParty = inv.setBuyerParty("ESB61127122", "GERSOFT HISPANIA S.L.", "Pablo Iglesias 63 1o 3a", "MATARO", "08303", "BARCELONA", "ES", "hidalgo_rafa@hotmail.com", null, null); //**VALIDATEDID**
            
             //Before lines define global discount
             inv.setGlobalDiscount(2, "Descuento de pronto pago");
@@ -107,8 +105,6 @@ namespace TestApp
             // PaymentsMeans and Terms
             inv.setPaymentMeans("31", "1234-1234-12-123456789", false, "desc forma de pago");
 
-            //inv.setPaymentMeans("31", "0081-0016-13-0001944604", false); //**VALIDATEDID**
-
             inv.addPaymentTerm(true, 100, new DateTime(2012, 04, 27), null);
 
             inv.closePaymentTerms();
@@ -137,9 +133,6 @@ namespace TestApp
             sFe32.secureInvoice(cert, Constants.XAdES_EPES_Enveloped);
             //sFe32.saveInvoiceSigned(TestConstants.fileNameSigned);
 
-            //String ValidatedID_ak = "5941fcefd748bffc7b2a7b8238ae9094"; //**VALIDATEDID**
-            //EndPointPimefactura epp = new EndPointPimefactura(ValidatedID_ak, TestConstants.environment);
-            //EndPointPimefactura epp = new EndPointPimefactura(ValidatedID_ak, Constants.prod_environment); //**VALIDATEDID*
             EndPointPimefactura epp = new EndPointPimefactura(TestConstants.AK_test, TestConstants.environment);
             //XMLInvoice invoice = new Facturae_3_2(TestConstants.fileNameSigned);
             //invoice.deserialize();
@@ -163,7 +156,7 @@ namespace TestApp
             // Test send Invoice
             /*
             //EndPointPimefactura epp = new EndPointPimefactura(TestConstants.AK_test, TestConstants.environment);
-            EndPointEmail epp = new EndPointEmail("smtp.gmail.com", 587, "efacturescat@santicasas.net","pimefactura");
+            EndPointEmail epp = new EndPointEmail("smtp.gmail.com", 587, "efacturescat@santicasas.net","XXXXXX");
 
             Session efSession = new Session(epp);
 

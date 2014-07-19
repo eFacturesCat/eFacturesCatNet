@@ -11,10 +11,6 @@ namespace eFacturesCat.Commons
     public class TestConstants
     {
         public static String fileName = "../../resources/SampleFacturae_3_2.xml";
-        //public static String fileName = "../../resources/fa140003.xml";
-        
-        //public static String fileName = "../../resources/sample2.xml";
-        public static String eFacturesCatFileName = "../../resources/SampleEFacturesCat.xml";
         public static String fileNameSigned = "../../resources/SampleFacturae_3_2_Signed.xml";
         public static String pkcs12_fileName = "../../resources/factura-sw.p12";
         public static String pkcs12_password = "189CBA9";
