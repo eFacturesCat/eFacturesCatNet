@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimefacturaRestDeliver", "PimefacturaRestDeliver\PimefacturaRestDeliver.csproj", "{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eFacturesCat", "..\..\eFacturesCat\eFacturesCat.csproj", "{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Debug|x86.ActiveCfg = Debug|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Debug|x86.Build.0 = Debug|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Release|Any CPU.ActiveCfg = Release|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Release|Mixed Platforms.Build.0 = Release|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Release|x86.ActiveCfg = Release|x86
+		{F54FED2A-6A68-4806-BEAD-4A4CEC6B0868}.Release|x86.Build.0 = Release|x86
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
