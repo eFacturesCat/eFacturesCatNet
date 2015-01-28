@@ -458,7 +458,7 @@
 		</xsl:element>
 	</xsl:template>	
 	<xsl:template match="cac:DocumentReference/cbc:ID">
-		<xsl:element name="ReceiverTransactionReference">
+		<xsl:element name="FileReference">
 			<xsl:value-of select="."/>
 		</xsl:element>
 	</xsl:template>	

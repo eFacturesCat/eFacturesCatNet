@@ -43,9 +43,9 @@ namespace TestApp
             */
 
 
-            //Invoice inv = new Invoice(TestConstants.eFacturesCatFileName);
+            //Invoice inv = new Invoice("//192.168.0.95/PUBLIC/tmp/efactura.xml");
             
-            /*
+            
             // Instance Invoice
             Invoice inv = new Invoice("EUR", "es", 6, 2, false); // Euros, español, 6 decimals on lines, 2 decimals on totals, not CreditNote
             //Invoice inv = new Invoice("EUR", "es", 6, 2, true); // Euros, español, 6 decimals on lines, 2 decimals on totals, CreditNote
@@ -53,7 +53,7 @@ namespace TestApp
             //inv.setCorrectiveNode("FIND INVOICE", ReasonCodeType.Item03, ReasonDescriptionType.Fechaexpedición, new DateTime(2012, 1, 1), new DateTime(2012, 12, 31), CorrectionMethodType.Item01, CorrectionMethodDescriptionType.Rectificacióníntegra);
 
             // Set Invoice Header (SeriesCode, InvoiceNumber, IssueDate)
-            inv.setInvoiceHeader("SC", DateTime.Now.ToString("yyyyMMddHHmmss"), new DateTime(2013,04,12));
+            inv.setInvoiceHeader("SC", DateTime.Now.ToString("yyyyMMddHHmmss"), new DateTime(2014,04,12));
             //inv.setInvoiceHeader("2012", "0401", new DateTime(2012, 04, 27)); //**VALIDATEDID**
 
             // Set Seller Party
@@ -71,25 +71,33 @@ namespace TestApp
             // Add Lines
             //InvoiceLineType il1 = inv.addInvoiceLine("First description", 10, 115.50, "S", 0, "More info for first description");
             //InvoiceLineType il1 = inv.addInvoiceLine("First description", 20, 15.08, "S", 18, "More info for first description");
-            InvoiceLineType il1 = inv.addInvoiceLine("First description", 175, 7.25, "S", 21, "More info for first description");
+            InvoiceLineType il1 = inv.addInvoiceLine("Ordinadors", 10, 720.25, "S", 21, "More info for first description");
             //UnitsOfMessure form facturae3 codes (direct map)
-            il1.InvoicedQuantity.unitCode = "03";
-            il1.InvoicedQuantity.unitCodeListID = "ES:facturae3";
-            //Albaran
-            il1.Delivery = new DeliveryType[1];
-            il1.Delivery[0] = new DeliveryType();
-            il1.Delivery[0].ID = new IDType();
-            il1.Delivery[0].ID.Value = "NumAlbaran";
-            il1.Delivery[0].ActualDeliveryDate = new ActualDeliveryDateType();
-            il1.Delivery[0].ActualDeliveryDate.Value = DateTime.Now;
+            //il1.InvoicedQuantity.unitCode = "03";
+            //il1.InvoicedQuantity.unitCodeListID = "ES:facturae3";
+            ////Albaran
+            //il1.Delivery = new DeliveryType[1];
+            //il1.Delivery[0] = new DeliveryType();
+            //il1.Delivery[0].ID = new IDType();
+            //il1.Delivery[0].ID.Value = "NumAlbaran";
+            //il1.Delivery[0].ActualDeliveryDate = new ActualDeliveryDateType();
+            //il1.Delivery[0].ActualDeliveryDate.Value = DateTime.Now;
             //Pedido
             il1.DocumentReference = new DocumentReferenceType[1];
             il1.DocumentReference[0] = new DocumentReferenceType();
             il1.DocumentReference[0].ID = new IDType();
-            il1.DocumentReference[0].ID.Value = "NumPedido";
-            InvoiceLineType il2 = inv.addInvoiceLine("2th description", 175, 7.25, "S", 21, null);
-            //InvoiceLineType il2 = inv.addInvoiceLine("Second description", 260, 7.01, "S", 18, null);
-            //InvoiceLineType il3 = inv.addInvoiceLine("Third description", 100, 6.48, "S", 18, null);
+            il1.DocumentReference[0].ID.Value = "EC-2014-3498743";
+            InvoiceLineType il2 = inv.addInvoiceLine("Paquets de fulls", 175, 7.25, "S", 21, null);
+            il2.DocumentReference = new DocumentReferenceType[1];
+            il2.DocumentReference[0] = new DocumentReferenceType();
+            il2.DocumentReference[0].ID = new IDType();
+            il2.DocumentReference[0].ID.Value = "EC-2014-3498743";
+
+            InvoiceLineType il3 = inv.addInvoiceLine("Third description", 100, 6.48, "S", 18, null);
+            il3.DocumentReference = new DocumentReferenceType[1];
+            il3.DocumentReference[0] = new DocumentReferenceType();
+            il3.DocumentReference[0].ID = new IDType();
+            il3.DocumentReference[0].ID.Value = "EC-2014-3498743";
             //inv.addInvoiceLine("Line", 100, 18.19, "S", 18, null);
             //inv.addInvoiceLine("Line", 50, 18.19, "S", 18, null);
             //inv.addInvoiceLine("Line", 300, 6.67, "S", 18, null);
@@ -105,7 +113,7 @@ namespace TestApp
             // PaymentsMeans and Terms
             inv.setPaymentMeans("31", "1234-1234-12-123456789", false, "desc forma de pago");
 
-            inv.addPaymentTerm(true, 100, new DateTime(2012, 04, 27), null);
+            inv.addPaymentTerm(true, 100, new DateTime(2014, 07, 27), null);
 
             inv.closePaymentTerms();
 
@@ -124,7 +132,7 @@ namespace TestApp
             StreamReader reader = EFacturesCat2Facturae32.TransformEFacturesCat2Facturae32(inv.getStreamReader());
             //String xmlFe32 = reader.ReadToEnd();
             //Console.WriteLine(xmlFe32);
-            
+            /*
             //Try to sing and send
             X509Certificate2 cert = new X509Certificate2(TestConstants.pkcs12_fileName, TestConstants.pkcs12_password);
             //X509Certificate2 cert = CertUtils.selectCertificateFromWindowsStore("Certificats disponibles", "Seleccioni un certificat");
@@ -139,16 +147,17 @@ namespace TestApp
             DeliverInvoice di = new DeliverInvoice(sFe32.xmlInvoiceSecured, epp);
             DeliverResponse dr = di.deliverInvoice();
             Console.WriteLine("Result = " + dr.result + " " + dr.description + " " + dr.longDescription);
-
+            
 
             Console.ReadLine();
-           */
-            
+           
+            */
             // Test sign Invoice
             SecuredFacturae3_2 sFe32 = null;
             X509Certificate2 cert = new X509Certificate2(TestConstants.pkcs12_fileName, TestConstants.pkcs12_password);
             //X509Certificate2 cert = CertUtils.selectCertificateFromWindowsStore("Certificats disponibles", "Seleccioni un certificat");
-            sFe32 = new SecuredFacturae3_2(new Facturae_3_2(TestConstants.fileName));
+            //sFe32 = new SecuredFacturae3_2(new Facturae_3_2(TestConstants.fileName));
+            sFe32 = new SecuredFacturae3_2(new Facturae_3_2(reader));
             sFe32.secureInvoice(cert, Constants.XAdES_EPES_Enveloped);
             sFe32.saveInvoiceSigned(TestConstants.fileNameSigned);
             Console.WriteLine("Invoice Signed");

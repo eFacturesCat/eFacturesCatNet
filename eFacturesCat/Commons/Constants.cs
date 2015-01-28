@@ -22,8 +22,8 @@ namespace eFacturesCat.Commons
 
         //REST
         public const string REST_PROD_URIBASE = "http://www.pimefactura.com/";
-        public const string REST_PREPRO_URIBASE = "http://localhost:80/";
-        //public const string REST_PREPRO_URIBASE = "http://new.pimefactura.com/";
+        //public const string REST_PREPRO_URIBASE = "http://localhost:80/";
+        public const string REST_PREPRO_URIBASE = "http://new.pimefactura.com/";
         public const string REST_INVOICETYPE = "facturae";
         public const string REST_INVOICETYPE_VERSION = "3.2";
         public const string REST_CERTID_DUMMY = "dummy";

@@ -8,7 +8,8 @@ using eFacturesCat.Commons;
 using eFacturesCat.Transform;
 using eFacturesCat.Secure;
 using eFacturesCat.Deliver;
-using eFacturesCat.Deliver.Pimefactura;
+//using eFacturesCat.Deliver.Pimefactura;
+using eFacturesCat.Deliver.PimefacturaRest;
 
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.XPath;
@@ -21,7 +22,7 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            String BuyerEmail = "me@sntc.eu";
+            String BuyerEmail = "casas.santi@gmail.com";
             String PimefacturaActivationKey = TestConstants.AK_test;
             String PimefacturaEnvironment = TestConstants.environment;
             String P12FileName = TestConstants.pkcs12_fileName;
@@ -34,7 +35,9 @@ namespace TestApp
             Invoice inv = new Invoice("EUR", "es", 6, 2, false); // Euros, español, 6 decimals on lines, 2 decimals on totals, not CreditNote
 
             // Set Invoice Header (SeriesCode, InvoiceNumber, IssueDate)
-            inv.setInvoiceHeader("SC", DateTime.Now.ToString("yyyyMMddHHmmss"), invoiceDate);
+            String invoiceNumber = DateTime.Now.ToString("yyyyMMddHHmmss");
+            //string invoiceNumber = "20150128103333";
+            inv.setInvoiceHeader("SC", invoiceNumber, invoiceDate);
 
             // Set Seller Party
             PartyType sellerParty = inv.setSellerParty("ESA00000000", "Seller Entity Inc", "Small Street", "Barcelona", "08034", "BARCELONA","ES", null, "0000000");
@@ -99,11 +102,19 @@ namespace TestApp
             sFe32.secureInvoice(cert, Constants.XAdES_EPES_Enveloped);
             //sFe32.saveInvoiceSigned(TestConstants.fileNameSigned);
 
-            EndPointPimefactura epp = new EndPointPimefactura(PimefacturaActivationKey, PimefacturaEnvironment);
+            EndPointPimefacturaRest epp = new EndPointPimefacturaRest(PimefacturaActivationKey, EndPointPimefacturaRest.RestEnvironment.PREPRO);
+
+
+            //epp.setSigningCertificate(Path.GetFileNameWithoutExtension(P12FileName), P12PassWord);
+            epp.setChannelOut("pimefactura");
+            
+            //EndPointPimefactura epp = new EndPointPimefactura(PimefacturaActivationKey, PimefacturaEnvironment);
 
             DeliverInvoice di = new DeliverInvoice(sFe32.xmlInvoiceSecured, epp);
+            //DeliverInvoice di = new DeliverInvoice(new Facturae_3_2(reader), epp);
+            
             DeliverResponse dr = di.deliverInvoice();
-            Console.WriteLine("Result = " + dr.result + " " + dr.description + " " + dr.longDescription);
+            Console.WriteLine("Result sending " + invoiceNumber + " = " + dr.result + " " + dr.description + " " + dr.longDescription);
 
 
             Console.ReadLine();

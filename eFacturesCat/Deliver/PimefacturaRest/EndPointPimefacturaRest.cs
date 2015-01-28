@@ -56,7 +56,7 @@ namespace eFacturesCat.Deliver.PimefacturaRest
             aUploadSignatureDTO.invoiceb64 = sInvoiceB64;
             aUploadSignatureDTO.invoicetype = Constants.REST_INVOICETYPE;
             aUploadSignatureDTO.invoicetypeversion = Constants.REST_INVOICETYPE_VERSION;
-            aUploadSignatureDTO.channeloutid = m_sCannelOut;
+            aUploadSignatureDTO.outchannelid = m_sCannelOut;
             if (String.IsNullOrEmpty(m_sCertId))
                 aUploadSignatureDTO.certificateid = Constants.REST_CERTID_DUMMY;
             else

@@ -11,6 +11,6 @@ namespace eFacturesCat.Deliver.PimefacturaRest
         public string invoiceb64 { get; set; }
         public string certificateid { get; set; }
         public string certificatepassword { get; set; }
-        public string channeloutid { get; set; }       
+        public string outchannelid { get; set; }       
     }
 }

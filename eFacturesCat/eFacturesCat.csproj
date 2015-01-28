@@ -35,7 +35,8 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -91,8 +92,10 @@
     <Compile Include="Secure\XAdES-EPES_facturae.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Deliver\Deliver.cd" />
     <None Include="Generate\Generate.cd" />
+    <None Include="packages.config" />
     <None Include="Resources\common\CCTS_CCT_SchemaModule-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
