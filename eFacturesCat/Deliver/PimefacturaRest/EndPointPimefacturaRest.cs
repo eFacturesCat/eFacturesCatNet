@@ -76,6 +76,7 @@ namespace eFacturesCat.Deliver.PimefacturaRest
             DeliverResponsePimefacturaRest aDeliverResponse = new DeliverResponsePimefacturaRest();
             try
             {
+                m_aHttpClient = new HttpClient();
                 UploadSignatureDTO aUploadSignatureDTO = buildUploadSignatureDTO(Convert.ToBase64String(xmlInvoice.toByteArray()));
                 m_aHttpClient.BaseAddress = new Uri(Constants.REST_PREPRO_URIBASE);
                 m_aHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(m_sAK + ":" + Constants.REST_AUTORIZATION_PASS)));
