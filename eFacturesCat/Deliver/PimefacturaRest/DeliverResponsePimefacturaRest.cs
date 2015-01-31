@@ -21,6 +21,8 @@ namespace eFacturesCat.Deliver.PimefacturaRest
                 setError(MalformedRequest, aResponseMessage);
             else if (aResponse.StatusCode == HttpStatusCode.InternalServerError)
                 setError(WrongInvoice, aResponseMessage);
+            else if (aResponse.StatusCode == HttpStatusCode.ServiceUnavailable)
+                setError(ServiceUnavaliable, aResponseMessage);
             else
                 setError(UnknownError, aResponseMessage);                
         }

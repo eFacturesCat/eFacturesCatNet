@@ -21,6 +21,7 @@ namespace eFacturesCat.Commons
         public static String MalformedRequest = "Malformed Request";
         public static String WrongInvoice = "Wrong Invoice Document";
         public static String AuthenticationFailure = "Authentication Failure";
+        public static String ServiceUnavaliable = "Service Unavaliable";
         public static String UnknownError = "Unknown Error";
 
         public int result { get; protected set; }

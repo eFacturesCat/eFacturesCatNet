@@ -16,6 +16,7 @@ namespace eFacturesCat.Deliver.PimefacturaRest
         String m_sCertId;
         String m_sCertPass;
         String m_sCannelOut;
+        RestEnvironment m_sRestEnv;
         HttpClient m_aHttpClient;   
 
         public enum RestEnvironment
@@ -29,13 +30,14 @@ namespace eFacturesCat.Deliver.PimefacturaRest
         public EndPointPimefacturaRest(String AK, RestEnvironment aRestEnv)
         {
             m_sAK = AK;
-            m_aHttpClient = new HttpClient();
+            m_sRestEnv = aRestEnv;
+            //m_aHttpClient = new HttpClient();
             
-            //Set baseURL
-            if (aRestEnv == RestEnvironment.PREPRO)
-                m_aHttpClient.BaseAddress = new Uri(Constants.REST_PREPRO_URIBASE);                
-            else
-                m_aHttpClient.BaseAddress = new Uri(Constants.REST_PROD_URIBASE);                
+            ////Set baseURL
+            //if (aRestEnv == RestEnvironment.PREPRO)
+            //    m_aHttpClient.BaseAddress = new Uri(Constants.REST_PREPRO_URIBASE);                
+            //else
+            //    m_aHttpClient.BaseAddress = new Uri(Constants.REST_PROD_URIBASE);                
         }
 
         public void setSigningCertificate(String sCertId, String sCertPass)
@@ -76,13 +78,31 @@ namespace eFacturesCat.Deliver.PimefacturaRest
             DeliverResponsePimefacturaRest aDeliverResponse = new DeliverResponsePimefacturaRest();
             try
             {
-                m_aHttpClient = new HttpClient();
-                UploadSignatureDTO aUploadSignatureDTO = buildUploadSignatureDTO(Convert.ToBase64String(xmlInvoice.toByteArray()));
-                m_aHttpClient.BaseAddress = new Uri(Constants.REST_PREPRO_URIBASE);
-                m_aHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(m_sAK + ":" + Constants.REST_AUTORIZATION_PASS)));
-                HttpResponseMessage response = m_aHttpClient.PutAsJsonAsync<UploadSignatureDTO>(Constants.REST_PATH_UPLOADINVOICE, aUploadSignatureDTO).Result;
+                int retries = 5;
+                do
+                {
+                    m_aHttpClient = new HttpClient();
+                    UploadSignatureDTO aUploadSignatureDTO = buildUploadSignatureDTO(Convert.ToBase64String(xmlInvoice.toByteArray()));
+                    //Set baseURL
+                    if (m_sRestEnv == RestEnvironment.PREPRO)
+                        m_aHttpClient.BaseAddress = new Uri(Constants.REST_PREPRO_URIBASE);
+                    else
+                        m_aHttpClient.BaseAddress = new Uri(Constants.REST_PROD_URIBASE);
+                    m_aHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(m_sAK + ":" + Constants.REST_AUTORIZATION_PASS)));
+                    HttpResponseMessage response = m_aHttpClient.PutAsJsonAsync<UploadSignatureDTO>(Constants.REST_PATH_UPLOADINVOICE, aUploadSignatureDTO).Result;
 
-                aDeliverResponse.setResponse(response);
+                    aDeliverResponse.setResponse(response);
+                    if (response.StatusCode != HttpStatusCode.ServiceUnavailable)
+                    {
+                        retries = 0;
+                    }
+                    else
+                    {
+                        retries--;
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    m_aHttpClient.Dispose();
+                } while (retries > 0);
 
                 return aDeliverResponse;
                 
