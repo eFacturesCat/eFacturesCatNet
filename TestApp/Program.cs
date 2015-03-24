@@ -9,6 +9,7 @@ using eFacturesCat.Transform;
 using eFacturesCat.Secure;
 using eFacturesCat.Deliver;
 using eFacturesCat.Deliver.Pimefactura;
+using eFacturesCat.Deliver.AOCeFACT;
 
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.XPath;
@@ -21,9 +22,9 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            // For encodings
-            Encoding iso = Encoding.GetEncoding("ISO-8859-1");
-            Encoding utf8 = Encoding.UTF8;
+            //// For encodings
+            //Encoding iso = Encoding.GetEncoding("ISO-8859-1");
+            //Encoding utf8 = Encoding.UTF8;
 
             // *** Testing schemas
             /*
@@ -61,9 +62,10 @@ namespace TestApp
             PartyType sellerParty = inv.setSellerPersonParty("ESA00000000", "John", "Smith", "Small Street", "Barcelona", "08034", "BARCELONA", "ES", null, "0000000");
 
             // Set Buyer Party
-            PartyType buyerParty = inv.setBuyerParty("ES12345678Z", "Buyer Entity Inc", "Big Street", "Barcelona", "08034", "BARCELONA", "ES", "me@sntc.eu", "Desc Centro Entrega", "CustomerID-1");
-            buyerParty.PostalAddress = new AddressType();
-            inv.createAddress(buyerParty.PostalAddress, "Postal Adress", "Postal Town", "08000", "BARCELONA", "ES");
+            //PartyType buyerParty = inv.setBuyerParty("ES12345678Z", "Buyer Entity Inc", "Big Street", "Barcelona", "08034", "BARCELONA", "ES", "me@sntc.eu", "Desc Centro Entrega", "CustomerID-1");
+            PartyType buyerParty = inv.setBuyerParty("ESS0811001G", "Generalitat de Catalunya", "Plaça Sant Jaume 4", "Barcelona", "08002", "BARCELONA", "ES", null, null, null);
+            //buyerParty.PostalAddress = new AddressType();
+            //inv.createAddress(buyerParty.PostalAddress, "Postal Adress", "Postal Town", "08000", "BARCELONA", "ES");
             
            
             //Before lines define global discount
@@ -163,20 +165,22 @@ namespace TestApp
             Console.WriteLine("Invoice Signed");
 
             // Test send Invoice
-            /*
+            
             //EndPointPimefactura epp = new EndPointPimefactura(TestConstants.AK_test, TestConstants.environment);
-            EndPointEmail epp = new EndPointEmail("smtp.gmail.com", 587, "efacturescat@santicasas.net","XXXXXX");
+            //EndPointEmail epp = new EndPointEmail("smtp.gmail.com", 587, "efacturescat@santicasas.net","XXXXXX");
+            EndPointAOCEfact epp = new EndPointAOCEfact("smtp.gmail.com", 587, "santi.albalia@gmail.com", "santicasa");
 
             Session efSession = new Session(epp);
 
             XMLInvoice invoice = new Facturae_3_2(TestConstants.fileNameSigned);
             invoice.deserialize();
-            epp.createMessage("efacturescat@santicasas.net", invoice.getBuyerEmail(), "Enviament de factura", "Trobarà adjunta la factura enviada");
+            //epp.createMessage("efacturescat@santicasas.net", invoice.getBuyerEmail(), "Enviament de factura", "Trobarà adjunta la factura enviada");
+            epp.createMessage("santi.albalia@gmail.com",EndPointAOCEfact.env_STAGE);
 
             DeliverInvoice di = new DeliverInvoice(invoice, epp);
             DeliverResponse dr = di.deliverInvoice();
             Console.WriteLine("Result = " + dr.result + " " + dr.description + " " + dr.longDescription);
-            */
+            
 
             Console.ReadLine();
            

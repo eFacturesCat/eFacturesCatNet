@@ -8,6 +8,10 @@ using eFacturesCat.Secure;
 using eFacturesCat.Deliver.Pimefactura;
 using SamplesCommon;
 
+/*
+ * DEPRECATED - Uses the old SOAP web service. Use new REST web service instead. 
+ */
+
 
 namespace PimefacturaDeliver
 {

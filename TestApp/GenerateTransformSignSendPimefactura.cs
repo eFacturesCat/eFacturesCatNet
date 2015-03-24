@@ -15,6 +15,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 using System.Xml;
+using eFacturesCat.Deliver.Pimefactura;
 
 namespace TestApp
 {
@@ -31,10 +32,10 @@ namespace TestApp
             DateTime invoiceDate = DateTime.Now.Date;
 
             X509Certificate2 cert = new X509Certificate2(P12FileName, P12PassWord);
-            EndPointPimefacturaRest epp = new EndPointPimefacturaRest(PimefacturaActivationKey, EndPointPimefacturaRest.RestEnvironment.PREPRO);
+            //EndPointPimefacturaRest epp = new EndPointPimefacturaRest(PimefacturaActivationKey, EndPointPimefacturaRest.RestEnvironment.PREPRO);
             //epp.setSigningCertificate(Path.GetFileNameWithoutExtension(P12FileName), P12PassWord);
-            epp.setChannelOut("pimefactura");
-            //EndPointPimefactura epp = new EndPointPimefactura(PimefacturaActivationKey, PimefacturaEnvironment);
+            //epp.setChannelOut("pimefactura");
+            EndPointPimefactura epp = new EndPointPimefactura(PimefacturaActivationKey, PimefacturaEnvironment);
 
             sendInvoice(BuyerEmail, invoiceDate, PimefacturaActivationKey, cert, epp);
             System.Threading.Thread.Sleep(1000);
@@ -46,7 +47,7 @@ namespace TestApp
 
         }
 
-        private static void sendInvoice(String BuyerEmail, DateTime invoiceDate, string PimefacturaActivationKey, X509Certificate2 cert, EndPointPimefacturaRest epp)
+        private static void sendInvoice(String BuyerEmail, DateTime invoiceDate, string PimefacturaActivationKey, X509Certificate2 cert, EndPointPimefactura epp)
         {
             // Instance Invoice
             Invoice inv = new Invoice("EUR", "es", 6, 2, false); // Euros, español, 6 decimals on lines, 2 decimals on totals, not CreditNote

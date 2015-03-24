@@ -8,7 +8,7 @@ using eFacturesCat.Commons;
 using eFacturesCat.Transform;
 using eFacturesCat.Secure;
 using eFacturesCat.Deliver;
-using eFacturesCat.Deliver.Pimefactura;
+using eFacturesCat.Deliver.PimefacturaRest;
 using System.Security.Cryptography.X509Certificates;
 using SamplesCommon;
 
@@ -40,7 +40,8 @@ namespace PimefacturaSignAndDeliver
             // Get the authentication key for the issuer to deliver to pimefactura service
             string ak = ConfigurationManager.AppSettings["ak"];
             // Create the EndPoint to Pimefactura Service (prepro environment)
-            EndPointPimefactura epp = new EndPointPimefactura(ak, Constants.prepro_environment);
+            EndPointPimefacturaRest epp = new EndPointPimefacturaRest(ak, EndPointPimefacturaRest.RestEnvironment.PREPRO);
+            
 
             // Select Windows Store Certificate
             X509Certificate2 cert = null;

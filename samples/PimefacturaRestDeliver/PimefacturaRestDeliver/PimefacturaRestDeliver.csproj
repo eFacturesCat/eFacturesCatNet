@@ -11,7 +11,8 @@
     <RootNamespace>PimefacturaRestDeliver</RootNamespace>
     <AssemblyName>PimefacturaRestDeliver</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -37,6 +38,13 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>..\..\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="eFacturesCat, Version=2.3.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\eFacturesCat.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,10 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\eFacturesCat\eFacturesCat.csproj">
-      <Project>{2A383290-CA18-4D9C-A7DF-5E43ABB9480C}</Project>
-      <Name>eFacturesCat</Name>
-    </ProjectReference>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

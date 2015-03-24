@@ -63,6 +63,7 @@
     <Compile Include="Commons\EFacturesException.cs" />
     <Compile Include="Commons\TestConstants.cs" />
     <Compile Include="Commons\Utils.cs" />
+    <Compile Include="Deliver\AOCEfact\EndPointAOCEfact.cs" />
     <Compile Include="Deliver\DeliverInvoice.cs" />
     <Compile Include="Deliver\DeliverResponse.cs" />
     <Compile Include="Deliver\EndPointEmail.cs" />
