@@ -38,6 +38,14 @@ namespace eFacturesCat.Transform
         public Facturae_3_2(StreamReader stream) : base(stream) { }
 
         /// <summary>
+        /// Convert Facturae Class to XMLInputStream
+        /// </summary>
+        public void serialize() 
+        {
+            this.setXmlString(fe.Serialize());
+        }
+
+        /// <summary>
         /// Convert XMLInputStream to Facturae Class
         /// </summary>
         public override void deserialize()

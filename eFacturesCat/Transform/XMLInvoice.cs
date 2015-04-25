@@ -76,6 +76,15 @@ namespace eFacturesCat.Transform
         #region "Public Methods"
 
         /// <summary>
+        /// set xmlString
+        /// </summary>
+        /// <param name="xmlStr">XML String</param>
+        public void setXmlString(String xmlStr)
+        {
+            xmlString = xmlStr;
+        }
+
+        /// <summary>
         /// Save Invoice into file
         /// </summary>
         /// <param name="fileName">Invoice filename</param>
