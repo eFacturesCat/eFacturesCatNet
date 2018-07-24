@@ -142,6 +142,9 @@
     <None Include="Resources\Facturaev3_2_unsigned.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resources\fb2b_extension.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\maindoc\eFacturesCat-Invoice.xsd">
       <SubType>Designer</SubType>
     </None>

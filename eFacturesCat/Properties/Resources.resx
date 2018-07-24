@@ -121,4 +121,7 @@
   <data name="Facturaev3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Facturaev3_2_unsigned.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="fb2b_extension" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fb2b_extension.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

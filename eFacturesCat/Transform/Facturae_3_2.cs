@@ -52,10 +52,18 @@ namespace eFacturesCat.Transform
         {
             // Parse Schema
             XmlReaderSettings xmlsettings = new XmlReaderSettings();
-            XmlTextReader xtrSchema = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.Facturaev3_2));
-            XmlSchema xmlSchema = new XmlSchema();
-            xmlSchema = XmlSchema.Read(xtrSchema, null);
-            xmlsettings.Schemas.Add(xmlSchema);
+            XmlTextReader xtrSchemaFacturae = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.Facturaev3_2));
+            XmlSchema xmlSchemaFacturae = new XmlSchema();
+            xmlSchemaFacturae = XmlSchema.Read(xtrSchemaFacturae, null);
+
+            XmlTextReader xtrSchemaFACeB2B = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.fb2b_extension));
+            XmlSchema xmlSchemaFACeB2B = new XmlSchema();
+            xmlSchemaFACeB2B = XmlSchema.Read(xtrSchemaFACeB2B, null);
+
+
+            xmlsettings.Schemas.Add(xmlSchemaFacturae);
+            xmlsettings.Schemas.Add(xmlSchemaFACeB2B);
+            
             xmlsettings.ValidationType = ValidationType.Schema;
 
             XmlTextReader xtrXML = new XmlTextReader(new StringReader(this.ToString()));

@@ -15,7 +15,7 @@ namespace eFacturesCat.Secure
     {
 
         private XMLInvoice xmlInvoice { get; set; }
-        public XMLInvoice xmlInvoiceSecured { get; protected set; }
+        public XMLInvoice xmlInvoiceSecured { get; set; }
 
         /// <summary>
         /// Constructor with unsecured invoice
