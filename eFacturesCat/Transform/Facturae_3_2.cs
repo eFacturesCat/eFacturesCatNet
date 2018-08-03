@@ -56,13 +56,21 @@ namespace eFacturesCat.Transform
             XmlSchema xmlSchemaFacturae = new XmlSchema();
             xmlSchemaFacturae = XmlSchema.Read(xtrSchemaFacturae, null);
 
-            XmlTextReader xtrSchemaFACeB2B = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.fb2b_extension));
-            XmlSchema xmlSchemaFACeB2B = new XmlSchema();
-            xmlSchemaFACeB2B = XmlSchema.Read(xtrSchemaFACeB2B, null);
+            /******* FACE B2B V 1.0  *******/
+            XmlTextReader xtrSchemaFACeB2Bv1_0 = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.fb2b_extension));
+            XmlSchema xmlSchemaFACeB2Bv1_0 = new XmlSchema();
+            xmlSchemaFACeB2Bv1_0 = XmlSchema.Read(xtrSchemaFACeB2Bv1_0, null);
+           
+
+            /******* FACE B2B V 1.1 *******/
+            XmlTextReader xtrSchemaFACeB2Bv1_1 = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.fb2b_extensionv_1_1));
+            XmlSchema xmlSchemaFACeB2Bv1_1 = new XmlSchema();
+            xmlSchemaFACeB2Bv1_1 = XmlSchema.Read(xtrSchemaFACeB2Bv1_1, null);
 
 
             xmlsettings.Schemas.Add(xmlSchemaFacturae);
-            xmlsettings.Schemas.Add(xmlSchemaFACeB2B);
+            xmlsettings.Schemas.Add(xmlSchemaFACeB2Bv1_0);
+            xmlsettings.Schemas.Add(xmlSchemaFACeB2Bv1_1);
             
             xmlsettings.ValidationType = ValidationType.Schema;
 

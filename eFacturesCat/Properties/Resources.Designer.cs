@@ -63,7 +63,8 @@ namespace eFacturesCat.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
         ///&lt;!--&lt;xs:schema xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.facturae.es/Facturae/2009/v3.2/Facturae&quot; targetNamespace=&quot;http://www.facturae.es/Facturae/2009/v3.2/Facturae&quot; version=&quot;3.2&quot;--&gt;
-        ///  &lt;xs:schema xmlns:fb2b=&quot;http://www.facturae.es/Facturae/Extensions/FB2B&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.facturae.es/Facturae/2009/v3.2/Facturae&quot; targetNamespace=&quot;http://www.facturae.es/Fact [rest of string was truncated]&quot;;.
+        ///  &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.facturae.es/Facturae/2009/v3.2/Facturae&quot; targetNamespace=&quot;http://www.facturae.es/Facturae/2009/v3.2/Facturae&quot; version=&quot;3.2&quot;&gt;
+        ///    &lt;!--xs:import na [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Facturaev3_2 {
             get {
@@ -87,6 +88,24 @@ namespace eFacturesCat.Properties {
         internal static string fb2b_extension {
             get {
                 return ResourceManager.GetString("fb2b_extension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;xs:schema
+        ///xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///xmlns=&quot;http://www.facturae.es/Facturae/Extensions/FaceB2BExtensionv1_1&quot;
+        ///targetNamespace=&quot;http://www.facturae.es/Facturae/Extensions/FaceB2BExtensionv1_1&quot; version=&quot;1.1&quot;&gt;
+        ///
+        ///    &lt;xs:element name=&quot;FaceB2BExtension&quot;&gt;
+        ///        &lt;xs:annotation&gt;
+        ///            &lt;xs:documentation xml:lang=&quot;es&quot;&gt;Elemento ORIGEN de la extensión de FaceB2B que permite especificar undiades
+        ///            del Directorio de Entidades DIRe como Centros Administrativos. &lt;/xs: [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string fb2b_extensionv_1_1 {
+            get {
+                return ResourceManager.GetString("fb2b_extensionv_1_1", resourceCulture);
             }
         }
     }

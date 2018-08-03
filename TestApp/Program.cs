@@ -15,11 +15,144 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 using System.Xml;
+using eFacturesCat.Deliver.PimefacturaRest;
 
 namespace TestApp
 {
     class Program
     {
+
+        public static string prepareFacturae(string xmlstr, string fileName)
+        {
+            if (xmlstr.StartsWith("<?xml"))
+            {
+                string heading = xmlstr.Substring(0, xmlstr.IndexOf("?>") + 2);
+                if (heading.Contains("encoding"))
+                {
+                    string oldEncoding = heading.Substring(heading.IndexOf("encoding"));
+                    string newHeading = "";
+                    if (oldEncoding.IndexOf("\"") != -1)
+                    {
+                        oldEncoding = oldEncoding.Substring(oldEncoding.IndexOf("\"") + 1);
+                        if (oldEncoding.IndexOf("\"") != -1)
+                        {
+                            oldEncoding = oldEncoding.Substring(0, oldEncoding.IndexOf("\""));
+                            newHeading = heading.Replace("\"" + oldEncoding + "\"", "\"UTF-8\"");
+                        }
+                    }
+                    else
+                    {
+                        if (oldEncoding.IndexOf("'") != -1)
+                        {
+                            oldEncoding = oldEncoding.Substring(oldEncoding.IndexOf("'") + 1);
+                            if (oldEncoding.IndexOf("'") != -1)
+                            {
+                                oldEncoding = oldEncoding.Substring(0, oldEncoding.IndexOf("'"));
+                                newHeading = heading.Replace("'" + oldEncoding + "'", "'UTF-8'");
+                            }
+                        }
+                    }
+                    if (newHeading != "")
+                    {
+                        if (oldEncoding.Contains("8859"))
+                        {
+
+                            Encoding iso = Encoding.GetEncoding(oldEncoding);
+                            xmlstr = File.ReadAllText(fileName, iso);
+                            Encoding utf8 = Encoding.UTF8;
+                            byte[] isoBytes = iso.GetBytes(xmlstr);
+                            byte[] utfBytes = Encoding.Convert(iso, utf8, isoBytes);
+                            xmlstr = utf8.GetString(utfBytes);
+                        }
+                        xmlstr = xmlstr.Replace(heading, newHeading);
+                    }
+
+
+                }
+            }
+            return xmlstr;
+        }
+
+        private static void processDir()
+        {
+            string ak = "73352031754535436142623350332036413142314c366944643849317231493075322032703863446f344c436e387232503441416e396f32453334413b393435422d315073632d65322d3b3a524d3a336541";
+                String fileName = "C:/opt/sp4i_prepro/invoices/A00000000150805-01 (1).xml";
+                EndPointPimefacturaRest epp = new EndPointPimefacturaRest(ak, EndPointPimefacturaRest.RestEnvironment.PROD);
+   
+                // Create Session
+                Session s = new Session(epp);
+
+                // Force encoding to UTF-8
+                string xmlstr = File.ReadAllText(fileName);
+                xmlstr = prepareFacturae(xmlstr, fileName);
+                XmlDocument doc = new XmlDocument();
+                try
+                {
+                    doc.LoadXml(xmlstr);
+                }
+                catch (Exception)
+                {
+                }
+                Facturae_3_2 fe32 = new Facturae_3_2(doc);
+
+
+             
+                fe32.deserialize();
+                if (fe32.isValidXml)
+                {
+
+                    SecuredInvoice sFe32;
+                    Response dr;
+                    SecuredFacturae3_2 sf = new SecuredFacturae3_2(fe32);
+                    sf.xmlInvoiceSecured = fe32;
+                    dr = s.Deliver(Constants.facturae32_EPES, sf);
+                    Console.WriteLine(dr.result);
+                }
+             
+                s.close();
+
+        }
+
+        private static void validteDE32()
+        {
+            //String fileName = "C:/opt/sp4i_prepro/invoices/QTAwMDAwMDAwMDAwMDFqbGMtdGVzdDE0NDU5MzMxODM=old.xml";
+            //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_A50004324_FAVE17-000100.xml";
+            //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_03956820165_FAVE17-001371.xml";
+            //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_A50004324_FAVE17-000101.xml";
+            //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_F36600583_FAVE17-001294.xml";
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "ESA0842187718103475125.xml");
+            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "tem3CE2.xml");//FACeB2B V1.0
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "temAE77.xml");//FACeB2B V1.1
+            StringBuilder error = new StringBuilder();
+            for (int i = 0; i < tmpFiles.Length; i++)
+			{
+			    // Force encoding to UTF-8
+                string xmlstr = File.ReadAllText(tmpFiles[i]);
+                xmlstr = prepareFacturae(xmlstr, tmpFiles[i]);
+                XmlDocument doc = new XmlDocument();
+                try
+                {
+                    doc.LoadXml(xmlstr);
+                }
+                catch (Exception)
+                {
+                }
+                Facturae_3_2 fe32 = new Facturae_3_2(doc);
+
+
+
+                fe32.deserialize();
+                error.Append(Path.GetFileNameWithoutExtension(tmpFiles[i]));
+                error.Append("-->ERROR: ");
+                error.Append(fe32.xmlErrorStr);
+                error.Append("\n");
+			}
+            File.WriteAllText(@"C:\temp\PimefacturaSignAndSent\inbox\test\error.txt", error.ToString());
+
+            
+
+        }
+
         static void Main(string[] args)
         {
             //// For encodings
@@ -46,6 +179,7 @@ namespace TestApp
 
             //Invoice inv = new Invoice("//192.168.0.95/PUBLIC/tmp/efactura.xml");
             
+            /*
             
             // Instance Invoice
             Invoice inv = new Invoice("EUR", "es", 6, 2, false); // Euros, español, 6 decimals on lines, 2 decimals on totals, not CreditNote
@@ -155,6 +289,7 @@ namespace TestApp
            
             */
             // Test sign Invoice
+            /*
             SecuredFacturae3_2 sFe32 = null;
             X509Certificate2 cert = new X509Certificate2(TestConstants.pkcs12_fileName, TestConstants.pkcs12_password);
             //X509Certificate2 cert = CertUtils.selectCertificateFromWindowsStore("Certificats disponibles", "Seleccioni un certificat");
@@ -180,7 +315,13 @@ namespace TestApp
             DeliverInvoice di = new DeliverInvoice(invoice, epp);
             DeliverResponse dr = di.deliverInvoice();
             Console.WriteLine("Result = " + dr.result + " " + dr.description + " " + dr.longDescription);
-            
+           
+             */
+
+
+            validteDE32();
+
+            //processDir();
 
             Console.ReadLine();
            

@@ -145,6 +145,9 @@
     <None Include="Resources\fb2b_extension.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resources\fb2b_extensionv_1_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\maindoc\eFacturesCat-Invoice.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -124,4 +124,7 @@
   <data name="fb2b_extension" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fb2b_extension.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="fb2b_extensionv_1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fb2b_extensionv_1_1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
