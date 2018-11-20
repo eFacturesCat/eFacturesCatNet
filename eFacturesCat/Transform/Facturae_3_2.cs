@@ -67,10 +67,15 @@ namespace eFacturesCat.Transform
             XmlSchema xmlSchemaFACeB2Bv1_1 = new XmlSchema();
             xmlSchemaFACeB2Bv1_1 = XmlSchema.Read(xtrSchemaFACeB2Bv1_1, null);
 
+            /******* UtilitiesExtension *******/
+            XmlTextReader xtrSchemaUtilitiesExtension = new XmlTextReader(new StringReader(global::eFacturesCat.Properties.Resources.UtilitiesExtension));
+            XmlSchema xmlSchemaUtilitiesExtension = new XmlSchema();
+            xmlSchemaUtilitiesExtension = XmlSchema.Read(xtrSchemaUtilitiesExtension, null);
 
             xmlsettings.Schemas.Add(xmlSchemaFacturae);
             xmlsettings.Schemas.Add(xmlSchemaFACeB2Bv1_0);
             xmlsettings.Schemas.Add(xmlSchemaFACeB2Bv1_1);
+            xmlsettings.Schemas.Add(xmlSchemaUtilitiesExtension);
             
             xmlsettings.ValidationType = ValidationType.Schema;
 

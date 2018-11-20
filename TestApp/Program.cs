@@ -121,8 +121,10 @@ namespace TestApp
             //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_A50004324_FAVE17-000101.xml";
             //String fileName = "C:/opt/sp4i_prepro/invoices/A60921400_F36600583_FAVE17-001294.xml";
             //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "ESA0842187718103475125.xml");
-            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "tem3CE2.xml");//FACeB2B V1.0
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "tem3CE2.xml");//FACeB2B V1.0
             //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "temAE77.xml");//FACeB2B V1.1
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "salicru.xml");//FACeB2B V1.0
+            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "18200055_20181116122535.xml");//Electricas
             StringBuilder error = new StringBuilder();
             for (int i = 0; i < tmpFiles.Length; i++)
 			{
@@ -323,8 +325,62 @@ namespace TestApp
 
             //processDir();
 
+            /*
+            string ak = "12a12a";
+            EndPointPimefacturaRest epp = new EndPointPimefacturaRest(ak, EndPointPimefacturaRest.RestEnvironment.PROD);
+
+            X509Certificate2 cert = new X509Certificate2(@"C:\Users\ViDSigner\Documents\certificados\Certificado_FNMT_Joaquin(2017).pfx", "cabezas");
+            // Create Session
+            Session s = new Session(cert, epp);
+            Response checkCert = s.checkCertificate(null);
+            if (checkCert.result != Response.Error)
+            {
+                if (checkCert.result == Response.Warning)
+                    Console.WriteLine("WARNING: " + checkCert.description + "-" + checkCert.longDescription);
+            }
+            else
+            {
+                Console.WriteLine("ERROR: " + checkCert.description + "-" + checkCert.longDescription);
+            }
+            Facturae_3_2 fe32=null;
+            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "salicru.xml");//FACeB2B V1.0
+            StringBuilder error = new StringBuilder();
+            for (int i = 0; i < tmpFiles.Length; i++)
+            {
+                // Force encoding to UTF-8
+                string xmlstr = File.ReadAllText(tmpFiles[i]);
+                xmlstr = prepareFacturae(xmlstr, tmpFiles[i]);
+                XmlDocument doc = new XmlDocument();
+                try
+                {
+                    doc.LoadXml(xmlstr);
+                }
+                catch (Exception)
+                {
+                }
+                fe32 = new Facturae_3_2(doc);
+                fe32.deserialize();
+
+                SecuredInvoice sFe32;
+                Response dr;
+
+                // Session sign and deliver
+                epp = (EndPointPimefacturaRest)s.sessionEndPoint;
+                epp.setChannelOut("AOCeFACT");
+                dr = s.signAndDeliver(fe32, Constants.facturae32_EPES, out sFe32);
+
+
+                // Save Signed Invoice (is not necessary)                        
+                if (dr != null && dr.result != DeliverResponse.Error)
+                {
+
+                }
+                else {
+                    Console.WriteLine(dr.result + "-" + dr.description + "-" + dr.longDescription);
+                }
+            }
             Console.ReadLine();
-           
+           */
 
 
         }

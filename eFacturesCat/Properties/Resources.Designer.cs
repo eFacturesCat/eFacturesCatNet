@@ -108,5 +108,21 @@ namespace eFacturesCat.Properties {
                 return ResourceManager.GetString("fb2b_extensionv_1_1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://www.facturae.es/Facturae/Extensions/Utilities&quot; targetNamespace=&quot;http://www.facturae.es/Facturae/Extensions/Utilities&quot;&gt;
+        ///	&lt;xs:element name=&quot;UtilitiesExtension&quot;&gt;
+        ///		&lt;xs:annotation&gt;
+        ///			&lt;xs:documentation xml:lang=&quot;en&quot;&gt; Element ORIGIN of Utilities Extension. &lt;/xs:documentation&gt;
+        ///			&lt;xs:documentation xml:lang=&quot;es&quot;&gt; Elemento ORIGEN de la Extension de las Utilities. &lt;/xs:documentation&gt;
+        ///		&lt;/xs:annotation&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UtilitiesExtension {
+            get {
+                return ResourceManager.GetString("UtilitiesExtension", resourceCulture);
+            }
+        }
     }
 }

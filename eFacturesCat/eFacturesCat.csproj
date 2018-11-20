@@ -151,6 +151,9 @@
     <None Include="Resources\maindoc\eFacturesCat-Invoice.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resources\UtilitiesExtension.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Secure\Secure.cd" />
     <None Include="Session.cd" />
     <None Include="Transform\Transform.cd" />
