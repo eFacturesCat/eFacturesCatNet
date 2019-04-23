@@ -16,9 +16,9 @@ namespace eFacturesCat.Transform
     {
         #region "Fields"
 
-        private Invoice invoice;
-        private String XSLT_uri;
-        private XmlDocument domInvoice;
+        //private Invoice invoice;
+        //private String XSLT_uri;
+        //private XmlDocument domInvoice;
 
         #endregion
 

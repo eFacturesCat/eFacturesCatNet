@@ -1,43 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Library:           OASIS Universal Business Language (UBL) 2.1
+  Library:           OASIS Universal Business Language (UBL) 2.1 OS
                      http://docs.oasis-open.org/ubl/os-UBL-2.1/
-  Module:            UBL-ExtensionContentDataType-2.1.xsd
-  Generated on:      2010-11-10 21:40(UTC)
+  Release Date:      04 November 2013
+  Module:            UBL-CoreComponentParameters-2.1.xsd
+  Generated on:      2013-04-20 18:40(UTC)
+  Copyright (c) OASIS Open 2013. All Rights Reserved.
 -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns=
-     "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
-            targetNamespace=
-     "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
-            elementFormDefault="qualified" 
-            attributeFormDefault="unqualified" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="urn:un:unece:uncefact:documentation:2"
+            xmlns="urn:un:unece:uncefact:documentation:2"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
             version="2.1">
-
-  <!--import here all extension schemas-->
-  <!-- Exclude signature for semantic eFactures.cat invoice
-  <xsd:import namespace=
-     "urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2"
-              schemaLocation="UBL-CommonSignatureComponents-2.1.xsd"/>
--->
-  <!-- ===== Type Declaration ===== -->
-  <xsd:complexType name="ExtensionContentType">
-    <xsd:sequence>
-      <xsd:any namespace="##other" processContents="lax"
-               minOccurs="1" maxOccurs="1">
-        <xsd:annotation>
-          <xsd:documentation>
-            Any element in any namespace other than the UBL extension
-            namespace is allowed to be the apex element of an extension.
-            Only those elements found in the UBL schemas and in the
-            trees of schemas imported in this module are validated.
-            Any element for which there is no schema declaration in any
-            of the trees of schemas passes validation and is not
-            treated as a schema constraint violation.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:any>
-    </xsd:sequence>
-  </xsd:complexType>
 </xsd:schema>
 <!-- ===== Copyright Notice ===== -->
 <!--
@@ -61,8 +36,6 @@
   implement this specification. Please address the information to the 
   OASIS Executive Director.
   
-  Copyright (C) OASIS Open 2001-2010. All Rights Reserved.
-
   This document and translations of it may be copied and furnished to 
   others, and derivative works that comment on or otherwise explain 
   it or assist in its implementation may be prepared, copied, 

@@ -13,16 +13,20 @@ namespace eFacturesCat.Deliver
     {
         private XMLInvoice xmlInvoice;
         private EndPoint endPoint;
+        private String invoiceType;
+        private String invoiceVersion;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="xmlInvoice">xmlInvoice to deliver</param>
         /// <param name="endPoint">endpoint to send invoice</param>
-        public DeliverInvoice(XMLInvoice xmlInvoice, EndPoint endPoint)
+        public DeliverInvoice(XMLInvoice xmlInvoice, EndPoint endPoint, String invoiceType, String invoiceVersion)
         {
             this.endPoint = endPoint;
             this.xmlInvoice = xmlInvoice;
+            this.invoiceType = invoiceType;
+            this.invoiceVersion = invoiceVersion;
         }
 
         /// <summary>
@@ -31,7 +35,7 @@ namespace eFacturesCat.Deliver
         /// <returns>Results of delivey</returns>
         public DeliverResponse deliverInvoice()
         {
-            return (endPoint.deliverInvoice(xmlInvoice));
+            return (endPoint.deliverInvoice(xmlInvoice, this.invoiceType, this.invoiceVersion));
         }
         
                 

@@ -115,12 +115,12 @@ namespace TestApp
             StreamReader reader = EFacturesCat2Facturae32.TransformEFacturesCat2Facturae32(inv.getStreamReader());
 
             //Try to sing and send
-            SecuredFacturae3_2 sFe32 = new SecuredFacturae3_2(new Facturae_3_2(reader));
+            SecuredFacturae3_2 sFe32 = new SecuredFacturae3_2(new GlobalInvoice(reader));
             sFe32.secureInvoice(cert, Constants.XAdES_EPES_Enveloped);
             //sFe32.saveInvoiceSigned(TestConstants.fileNameSigned);
 
 
-            DeliverInvoice di = new DeliverInvoice(sFe32.xmlInvoiceSecured, epp);
+            DeliverInvoice di = new DeliverInvoice(sFe32.xmlInvoiceSecured, epp, Constants.INVOICE_TYPE_FACTURAE, Constants.FACTURAE_VERSION_3_2);
             //DeliverInvoice di = new DeliverInvoice(new Facturae_3_2(reader), epp);
 
             DeliverResponse dr = di.deliverInvoice();

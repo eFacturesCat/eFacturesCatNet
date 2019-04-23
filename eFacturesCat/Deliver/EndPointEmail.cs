@@ -72,6 +72,30 @@ namespace eFacturesCat.Deliver
         }
 
         /// <summary>
+        /// Method overrides EndPoint abstrac.
+        /// Attach de XMLInvoice to email and send message
+        /// </summary>
+        /// <param name="xmlInvoice">XmlInvoice to send</param>
+        /// <param name="invoiceType">Invoice type</param>
+        /// <param name="invoiceVersion">Invoice version</param>
+        /// <returns>Results</returns>
+        public override DeliverResponse deliverInvoice(XMLInvoice xmlInvoice, String invoiceType, String invoiceVersion)
+        {
+            DeliverResponse dr = new DeliverResponse();
+            try
+            {
+                Attachment att = new Attachment(xmlInvoice.xmlInputStream.BaseStream, "Invoice.xml");
+                mail.Attachments.Add(att);
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                dr.setError(DeliverResponse.ConnectError, ex.Message);
+            }
+            return dr;
+        }
+
+        /// <summary>
         /// Method that overrides close session to EndPoint
         /// </summary>
         public override void close()

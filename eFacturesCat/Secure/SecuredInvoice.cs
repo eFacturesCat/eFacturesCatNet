@@ -13,7 +13,6 @@ namespace eFacturesCat.Secure
     /// </summary>
     public abstract class SecuredInvoice
     {
-
         private XMLInvoice xmlInvoice { get; set; }
         public XMLInvoice xmlInvoiceSecured { get; set; }
 

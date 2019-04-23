@@ -17,14 +17,16 @@ namespace eFacturesCat.Secure
         /// Constructor
         /// </summary>
         /// <param name="xmlInvoice">The facturae 3.2 invoice to be signed</param>
-        public SecuredFacturae3_2(Facturae_3_2 xmlInvoice) : base(xmlInvoice) { }
+        public SecuredFacturae3_2(GlobalInvoice xmlInvoice) : base(xmlInvoice) { }
 
         /// <summary>
         /// Constructor from secured filename
         /// </summary>
         /// <param name="fileName">The fileName of secured invoice</param>
-        public SecuredFacturae3_2(String fileName) : base(fileName) {
-            this.xmlInvoiceSecured = new Facturae_3_2(fileName);
+        public SecuredFacturae3_2(String fileName)
+            : base(fileName)
+        {
+            this.xmlInvoiceSecured = new GlobalInvoice(fileName);
         }	    
 
         /// <summary>

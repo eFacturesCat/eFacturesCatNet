@@ -64,41 +64,98 @@ namespace eFacturesCat
         /// Sign
         /// </summary>
         /// <param name="xmlInvoice">Invoice to be signed</param>
-        /// <param name="invoiceFormat">Invoice Format</param>
+        /// <param name="invoiceType">Invoice type (facturae, UBL)</param>
+        /// <param name="invoiceVersion">Invoice version (3.2, 3.2.1, 3.2.2, 2.1)</param>
         /// <param name="sInvoice">Signed Invoice</param>
         /// <returns>Response of result of the method</returns>
-        public Response signInvoice(XMLInvoice xmlInvoice, String invoiceFormat, out SecuredInvoice sInvoice)
+        public Response signInvoice(XMLInvoice xmlInvoice, String invoiceType, String invoiceVersion, out SecuredInvoice sInvoice)
         {
             sInvoice = null;
-            if (invoiceFormat == Constants.facturae32_EPES)
+            switch (invoiceType)
             {
-                SecuredFacturae3_2 sFe32;
-                Response resp = signFacturae3_2_EPES((Facturae_3_2)xmlInvoice, out sFe32);
-                sInvoice = sFe32;
-                return resp;
+                case Constants.INVOICE_TYPE_FACTURAE: {
+                    switch (invoiceVersion)
+                    {
+                        case Constants.FACTURAE_VERSION_3_2:
+                            {
+                                SecuredFacturae3_2 sFe32;
+                                Response resp = signFacturae3_2_EPES((GlobalInvoice)xmlInvoice, out sFe32);
+                                sInvoice = sFe32;
+                                return resp;
+                            }
+                        case Constants.FACTURAE_VERSION_3_2_1:
+                            {
+                                SecuredFacturae3_2_1 sFe321;
+                                Response resp = signFacturae3_2_1_EPES((GlobalInvoice)xmlInvoice, out sFe321);
+                                sInvoice = sFe321;
+                                return resp;
+                            }
+                        case Constants.FACTURAE_VERSION_3_2_2:
+                            {
+                                SecuredFacturae3_2_2 sFe322;
+                                Response resp = signFacturae3_2_2_EPES((GlobalInvoice)xmlInvoice, out sFe322);
+                                sInvoice = sFe322;
+                                return resp;
+                            }
+                        default:
+                            return new Response(Response.Error, Response.WrongInvoice, "Invoice version: " + invoiceVersion + " not supported");
+                    }   
+                }
+                case Constants.INVOICE_TYPE_UBL:
+                    {
+                        return new Response(Response.Error, Response.WrongInvoice, "UBL invoices can not be signed.");
+                    } 
+                default:
+                    return new Response(Response.Error, Response.WrongInvoice, "Invoice type: " + invoiceType + " not supported");
             }
-            return new Response(Response.Error, Response.WrongInvoice, invoiceFormat + " not supported");
         }
 
         /// <summary>
         /// Deliver
         /// </summary>
-        /// <param name="invoiceFormat">Invoice Format</param>
+        /// <param name="invoiceType">Invoice type (facturae, UBL)</param>
+        /// <param name="invoiceVersion">Invoice version (3.2, 3.2.1, 3.2.2, 2.1)</param>
         /// <param name="sInvoice">Signed Invoice</param>
         /// <returns>Response of result of the method</returns>
-        public Response Deliver(String invoiceFormat, SecuredInvoice sInvoice)
+        public Response Deliver(String invoiceType, String invoiceVersion, XMLInvoice sInvoiceSecured)
         {
-            if (invoiceFormat == Constants.facturae32_EPES)
-                return DeliverFacturae3_2_EPES((SecuredFacturae3_2)sInvoice);
-            return new Response(Response.Error, Response.WrongInvoice, invoiceFormat + " not supported");
+            switch (invoiceType)
+            {
+                case Constants.INVOICE_TYPE_FACTURAE:
+                    {
+                        return DeliverFacturaeEPES(sInvoiceSecured, invoiceVersion);
+                    }
+                case Constants.INVOICE_TYPE_UBL:
+                    {
+                        return DeliverUBL(sInvoiceSecured, invoiceVersion);
+                    }
+                default:
+                    return new Response(Response.Error, Response.WrongInvoice, "Invoice type: "+ invoiceType + " not supported");
+            }
         }
 
-        private Response DeliverFacturae3_2_EPES(SecuredFacturae3_2 sFe32)
+        private Response DeliverFacturaeEPES(XMLInvoice aXmlInvoice, String facturaeVersion)
         {
             // Deliver signed invoice to session pimefactura endpoint
             try
             {
-                DeliverInvoice di = new DeliverInvoice(sFe32.xmlInvoiceSecured, sessionEndPoint);
+                DeliverInvoice di = new DeliverInvoice(aXmlInvoice, sessionEndPoint, Constants.INVOICE_TYPE_FACTURAE, facturaeVersion);
+                DeliverResponse dr = di.deliverInvoice();
+                return dr;
+            }
+            catch (Exception ex)
+            {
+                return new Response(Response.Error, Response.ConnectError, ex.Message);
+            }
+
+        }
+
+        private Response DeliverUBL(XMLInvoice aXmlInvoice, String sUBLVersion)
+        {
+            // Deliver signed invoice to session pimefactura endpoint
+            try
+            {
+                DeliverInvoice di = new DeliverInvoice(aXmlInvoice, sessionEndPoint, Constants.INVOICE_TYPE_UBL, sUBLVersion);
                 DeliverResponse dr = di.deliverInvoice();
                 return dr;
             }
@@ -113,24 +170,55 @@ namespace eFacturesCat
         /// Sign and Deliver Invoice
         /// </summary>
         /// <param name="xmlInvoice">Invoice to be signed</param>
-        /// <param name="invoiceFormat">Invoice Format</param>
+        /// <param name="invoiceType">Invoice type (facturae, UBL)</param>
+        /// <param name="invoiceVersion">Invoice version (3.2, 3.2.1, 3.2.2, 2.1)</param>
         /// <param name="sInvoice">Signed Invoice</param>
         /// <returns>Response of result of the method</returns>
-        public Response signAndDeliver(XMLInvoice xmlInvoice, String invoiceFormat, out SecuredInvoice sInvoice)
+        public Response signAndDeliver(XMLInvoice xmlInvoice, String invoiceType, String invoiceVersion, out SecuredInvoice sInvoice)
         {
             sInvoice = null;
-            if (invoiceFormat == Constants.facturae32_EPES)
+            switch (invoiceType)
             {
-                SecuredFacturae3_2 sFe32;
-                Response resp = signAndDeliverFacturae3_2_EPES((Facturae_3_2)xmlInvoice, out sFe32);
-                sInvoice = sFe32;
-                return resp;
+                case Constants.INVOICE_TYPE_FACTURAE:
+                    {
+                        switch (invoiceVersion)
+                        {
+                            case Constants.FACTURAE_VERSION_3_2:
+                                {
+                                    SecuredFacturae3_2 sFe32;
+                                    Response resp = signAndDeliverFacturae3_2_EPES((GlobalInvoice)xmlInvoice, out sFe32);
+                                    sInvoice = sFe32;
+                                    return resp;
+                                }
+                            case Constants.FACTURAE_VERSION_3_2_1:
+                                {
+                                    SecuredFacturae3_2_1 sFe321;
+                                    Response resp = signAndDeliverFacturae3_2_1_EPES((GlobalInvoice)xmlInvoice, out sFe321);
+                                    sInvoice = sFe321;
+                                    return resp;
+                                }
+                            case Constants.FACTURAE_VERSION_3_2_2:
+                                {
+                                    SecuredFacturae3_2_2 sFe322;
+                                    Response resp = signAndDeliverFacturae3_2_2_EPES((GlobalInvoice)xmlInvoice, out sFe322);
+                                    sInvoice = sFe322;
+                                    return resp;
+                                }
+                            default:
+                                return new Response(Response.Error, Response.WrongInvoice, "Invoice vVersion: " + invoiceVersion + " not supported");
+                        }
+                    }
+                case Constants.INVOICE_TYPE_UBL:
+                    {
+                        return new Response(Response.Error, Response.WrongInvoice, "UBL invoices can not be signed.");
+                    }
+                default:
+                    return new Response(Response.Error, Response.WrongInvoice, "Invoice type: " + invoiceType + " not supported");
             }
-            return new Response(Response.Error, Response.WrongInvoice, invoiceFormat + " not supported");
         }
 
 
-        private Response signFacturae3_2_EPES(Facturae_3_2 fe32, out SecuredFacturae3_2 sFe32)
+        private Response signFacturae3_2_EPES(GlobalInvoice fe32, out SecuredFacturae3_2 sFe32)
         {
             sFe32 = null;
             // Create secured invoice from unsigned invoice
@@ -155,12 +243,78 @@ namespace eFacturesCat
             return new Response(Response.Correct, "", "");
         }
 
-        private Response signAndDeliverFacturae3_2_EPES(Facturae_3_2 fe32, out SecuredFacturae3_2 sFe32)
+        private Response signFacturae3_2_1_EPES(GlobalInvoice fe321, out SecuredFacturae3_2_1 sFe321)
+        {
+            sFe321 = null;
+            // Create secured invoice from unsigned invoice
+            try
+            {
+                sFe321 = new SecuredFacturae3_2_1(fe321);
+            }
+            catch (Exception ex)
+            {
+                return new Response(Response.Error, Response.WrongInvoice, ex.Message);
+            }
+
+            // Secure with session certificate
+            try
+            {
+                sFe321.secureInvoice(sessionCertificate, Constants.XAdES_EPES_Enveloped);
+            }
+            catch (Exception ex)
+            {
+                return new Response(Response.Error, Response.SigningError, ex.Message);
+            }
+            return new Response(Response.Correct, "", "");
+        }
+
+        private Response signFacturae3_2_2_EPES(GlobalInvoice fe322, out SecuredFacturae3_2_2 sFe322)
+        {
+            sFe322 = null;
+            // Create secured invoice from unsigned invoice
+            try
+            {
+                sFe322 = new SecuredFacturae3_2_2(fe322);
+            }
+            catch (Exception ex)
+            {
+                return new Response(Response.Error, Response.WrongInvoice, ex.Message);
+            }
+
+            // Secure with session certificate
+            try
+            {
+                sFe322.secureInvoice(sessionCertificate, Constants.XAdES_EPES_Enveloped);
+            }
+            catch (Exception ex)
+            {
+                return new Response(Response.Error, Response.SigningError, ex.Message);
+            }
+            return new Response(Response.Correct, "", "");
+        }
+
+        private Response signAndDeliverFacturae3_2_EPES(GlobalInvoice fe32, out SecuredFacturae3_2 sFe32)
         {
             sFe32 = null;
             Response respSignature = signFacturae3_2_EPES(fe32, out sFe32);
             if (respSignature.result != Response.Correct) return respSignature;
-            return DeliverFacturae3_2_EPES(sFe32);
+            return DeliverFacturaeEPES(sFe32.xmlInvoiceSecured, Constants.FACTURAE_VERSION_3_2);
+        }
+
+        private Response signAndDeliverFacturae3_2_1_EPES(GlobalInvoice fe321, out SecuredFacturae3_2_1 sFe321)
+        {
+            sFe321 = null;
+            Response respSignature = signFacturae3_2_1_EPES(fe321, out sFe321);
+            if (respSignature.result != Response.Correct) return respSignature;
+            return DeliverFacturaeEPES(sFe321.xmlInvoiceSecured, Constants.FACTURAE_VERSION_3_2_1);
+        }
+
+        private Response signAndDeliverFacturae3_2_2_EPES(GlobalInvoice fe322, out SecuredFacturae3_2_2 sFe322)
+        {
+            sFe322 = null;
+            Response respSignature = signFacturae3_2_2_EPES(fe322, out sFe322);
+            if (respSignature.result != Response.Correct) return respSignature;
+            return DeliverFacturaeEPES(sFe322.xmlInvoiceSecured, Constants.FACTURAE_VERSION_3_2_2);
         }
 
         /// <summary>

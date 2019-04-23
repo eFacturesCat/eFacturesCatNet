@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Library:           OASIS Universal Business Language (UBL) 2.1 PRD3 Draft 2
-                     http://docs.oasis-open.org/ubl/prd3d2-UBL-2.1/
-  Module:            xsd/common/UBL-SignatureBasicComponents-2.1.xsd
-  Generated on:      2012-02-08 02:42z
+  Library:           OASIS Universal Business Language (UBL) 2.1 OS
+                     http://docs.oasis-open.org/ubl/os-UBL-2.1/
+  Release Date:      04 November 2013
+  Module:            xsd/common/UBL-CommonSignatureComponents-2.1.xsd
+  Generated on:      2013-10-31 17:18z
+  Copyright (c) OASIS Open 2013. All Rights Reserved.
 -->
-<xsd:schema xmlns="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2"
-            xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2"
-            xmlns:udt="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2"
+<xsd:schema xmlns="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2"
+            xmlns:sac="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2"
+            xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+            targetNamespace="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             version="2.1">
    <!-- ===== Imports ===== -->
-   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2"
-               schemaLocation="UBL-QualifiedDataTypes-2.1.xsd"/>
-   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2"
-               schemaLocation="UBL-UnqualifiedDataTypes-2.1.xsd"/>
+   <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2"
+               schemaLocation="UBL-SignatureAggregateComponents-2.1.xsd"/>
    <!-- ===== Element Declarations ===== -->
-   <xsd:element name="ReferencedSignatureID" type="ReferencedSignatureIDType"/>
+   <xsd:element name="UBLDocumentSignatures" type="UBLDocumentSignaturesType"/>
    <!-- ===== Type Definitions ===== -->
-   <!-- ===== Basic Business Information Entity Type Definitions ===== -->
-   <xsd:complexType name="ReferencedSignatureIDType">
-      <xsd:simpleContent>
-         <xsd:extension base="udt:IdentifierType"/>
-      </xsd:simpleContent>
+   <!-- ===== Aggregate Business Information Entity Type Definitions ===== -->
+   <xsd:complexType name="UBLDocumentSignaturesType">
+      <xsd:annotation>
+         <xsd:documentation>
+            <ccts:Component>
+               <ccts:ComponentType>ABIE</ccts:ComponentType>
+               <ccts:DictionaryEntryName>UBL Document Signatures. Details</ccts:DictionaryEntryName>
+               <ccts:Definition>This class collects all signature information for a document.</ccts:Definition>
+               <ccts:ObjectClass>UBL Document Signatures</ccts:ObjectClass>
+            </ccts:Component>
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element ref="sac:SignatureInformation" minOccurs="1" maxOccurs="unbounded">
+            <xsd:annotation>
+               <xsd:documentation>
+                  <ccts:Component>
+                     <ccts:ComponentType>ASBIE</ccts:ComponentType>
+                     <ccts:DictionaryEntryName>UBL Document Signatures. Signature Information</ccts:DictionaryEntryName>
+                     <ccts:Definition>Each of these is scaffolding for a single digital signature.</ccts:Definition>
+                     <ccts:Cardinality>1..n</ccts:Cardinality>
+                     <ccts:ObjectClass>UBL Document Signatures</ccts:ObjectClass>
+                     <ccts:PropertyTerm>Signature Information</ccts:PropertyTerm>
+                     <ccts:AssociatedObjectClass>Signature Information</ccts:AssociatedObjectClass>
+                     <ccts:RepresentationTerm>Signature Information</ccts:RepresentationTerm>
+                  </ccts:Component>
+               </xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
    </xsd:complexType>
 </xsd:schema>
 <!-- ===== Copyright Notice ===== --><!--
@@ -49,8 +74,6 @@
   implement this specification. Please address the information to the 
   OASIS Executive Director.
   
-  Copyright (C) OASIS Open 2001-2012. All Rights Reserved.
-
   This document and translations of it may be copied and furnished to 
   others, and derivative works that comment on or otherwise explain 
   it or assist in its implementation may be prepared, copied, 

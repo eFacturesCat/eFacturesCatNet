@@ -82,11 +82,15 @@
     </Compile>
     <Compile Include="Resources\eFacturesCat-Invoice.cs" />
     <Compile Include="Resources\Facturaev3_2_unsigned.designer.cs" />
+    <Compile Include="Secure\SecuredFacturae3_2_2.cs" />
+    <Compile Include="Secure\SecuredFacturae3_2_1.cs" />
     <Compile Include="Secure\SecuredFacturae3_2.cs" />
     <Compile Include="Secure\SecuredInvoice.cs" />
     <Compile Include="Secure\CertUtils.cs" />
     <Compile Include="Session.cs" />
-    <Compile Include="Transform\Facturae_3_2.cs" />
+    <Compile Include="Transform\facturae322\Facturae.cs" />
+    <Compile Include="Transform\facturae321\Facturae.cs" />
+    <Compile Include="Transform\GlobalInvoice.cs" />
     <Compile Include="Generate\Invoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transform\XMLInvoice.cs" />
@@ -97,49 +101,55 @@
     <None Include="Deliver\Deliver.cd" />
     <None Include="Generate\Generate.cd" />
     <None Include="packages.config" />
-    <None Include="Resources\common\CCTS_CCT_SchemaModule-2.1.xsd">
+    <None Include="Resources\commons\CCTS_CCT_SchemaModule-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-CommonAggregateComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-CommonAggregateComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-CommonBasicComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-CommonBasicComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-CommonExtensionComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-CommonExtensionComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-CommonSignatureComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-CommonSignatureComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-CoreComponentParameters-2.1.xsd">
+    <None Include="Resources\commons\UBL-CoreComponentParameters-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-ExtensionContentDataType-2.1.xsd">
+    <None Include="Resources\commons\UBL-ExtensionContentDataType-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-QualifiedDataTypes-2.1.xsd">
+    <None Include="Resources\commons\UBL-QualifiedDataTypes-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-SignatureAggregateComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-SignatureAggregateComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-SignatureBasicComponents-2.1.xsd">
+    <None Include="Resources\commons\UBL-SignatureBasicComponents-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-UnqualifiedDataTypes-2.1.xsd">
+    <None Include="Resources\commons\UBL-UnqualifiedDataTypes-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-XAdESv132-2.1.xsd">
+    <None Include="Resources\commons\UBL-XAdESv132-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-XAdESv141-2.1.xsd">
+    <None Include="Resources\commons\UBL-XAdESv141-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\common\UBL-xmldsig-core-schema-2.1.xsd">
+    <None Include="Resources\commons\UBL-xmldsig-core-schema-2.1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\Facturaev3_2_unsigned.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Facturaev3_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Facturaev3_2_2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\fb2b_extension.xsd">
@@ -151,7 +161,13 @@
     <None Include="Resources\maindoc\eFacturesCat-Invoice.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resources\UBL-Invoice-2.1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\UtilitiesExtension.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xmldsig-core-schema.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Secure\Secure.cd" />

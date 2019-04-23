@@ -73,43 +73,41 @@ namespace TestApp
             return xmlstr;
         }
 
-        private static void processDir()
+        private static void processDir(string sInvoiceType, string sInvoiceVersion)
         {
-            string ak = "73352031754535436142623350332036413142314c366944643849317231493075322032703863446f344c436e387232503441416e396f32453334413b393435422d315073632d65322d3b3a524d3a336541";
-                String fileName = "C:/opt/sp4i_prepro/invoices/A00000000150805-01 (1).xml";
-                EndPointPimefacturaRest epp = new EndPointPimefacturaRest(ak, EndPointPimefacturaRest.RestEnvironment.PROD);
+            string ak = "d8e893c50e625a7c90f44830300ccbca";
+            String fileName = "C:\\temp\\PimefacturaSignAndSent\\ubl_invoice_21.xml";
+            EndPointPimefacturaRest epp = new EndPointPimefacturaRest(ak, EndPointPimefacturaRest.RestEnvironment.PREPRO);
    
-                // Create Session
-                Session s = new Session(epp);
+            // Create Session
+            Session s = new Session(epp);
 
-                // Force encoding to UTF-8
-                string xmlstr = File.ReadAllText(fileName);
-                xmlstr = prepareFacturae(xmlstr, fileName);
-                XmlDocument doc = new XmlDocument();
-                try
-                {
-                    doc.LoadXml(xmlstr);
-                }
-                catch (Exception)
-                {
-                }
-                Facturae_3_2 fe32 = new Facturae_3_2(doc);
+            // Force encoding to UTF-8
+            string xmlstr = File.ReadAllText(fileName);
+            xmlstr = prepareFacturae(xmlstr, fileName);
+            XmlDocument doc = new XmlDocument();
+            try
+            {
+                doc.LoadXml(xmlstr);
+            }
+            catch (Exception)
+            {
+            }
+            GlobalInvoice fe32 = new GlobalInvoice(doc);
 
 
              
-                fe32.deserialize();
-                if (fe32.isValidXml)
-                {
+            fe32.deserialize();
+            if (fe32.isValidXml)
+            {
 
-                    SecuredInvoice sFe32;
-                    Response dr;
-                    SecuredFacturae3_2 sf = new SecuredFacturae3_2(fe32);
-                    sf.xmlInvoiceSecured = fe32;
-                    dr = s.Deliver(Constants.facturae32_EPES, sf);
-                    Console.WriteLine(dr.result);
-                }
+                SecuredInvoice sFe32;
+                Response dr;
+                dr = s.Deliver(sInvoiceType, sInvoiceVersion, fe32);
+                Console.WriteLine(dr.result + "; " + dr.description + "; " + dr.longDescription);
+            }
              
-                s.close();
+            s.close();
 
         }
 
@@ -124,7 +122,10 @@ namespace TestApp
             //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "tem3CE2.xml");//FACeB2B V1.0
             //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "temAE77.xml");//FACeB2B V1.1
             //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "salicru.xml");//FACeB2B V1.0
-            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "18200055_20181116122535.xml");//Electricas
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent\inbox\test", "18200055_20181116122535.xml");//Electricas
+            //string[] tmpFiles = Directory.GetFiles(@"C:\Users\ViDSigner\Documents\Facturae", "18100139_20181212081507.xml");//Electricas 2
+            //string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent", "facturae_3_2_2_signed.xml");//Facturae 3.2.1
+            string[] tmpFiles = Directory.GetFiles(@"C:\temp\PimefacturaSignAndSent", "ubl_invoice_21.xml");//UBL
             StringBuilder error = new StringBuilder();
             for (int i = 0; i < tmpFiles.Length; i++)
 			{
@@ -139,15 +140,23 @@ namespace TestApp
                 catch (Exception)
                 {
                 }
-                Facturae_3_2 fe32 = new Facturae_3_2(doc);
-
-
-
+                GlobalInvoice fe32 = new GlobalInvoice(doc);
                 fe32.deserialize();
-                error.Append(Path.GetFileNameWithoutExtension(tmpFiles[i]));
-                error.Append("-->ERROR: ");
-                error.Append(fe32.xmlErrorStr);
-                error.Append("\n");
+                if (fe32.isValidXml)
+                {
+                    error.Append(Path.GetFileNameWithoutExtension(tmpFiles[i]));
+                    error.Append("Factura válida");
+                }
+                else
+                {
+                    
+                    error.Append(Path.GetFileNameWithoutExtension(tmpFiles[i]));
+                    error.Append("-->ERROR: ");
+                    error.Append(fe32.xmlErrorStr);
+                    error.Append("\n");
+                }
+
+                
 			}
             File.WriteAllText(@"C:\temp\PimefacturaSignAndSent\inbox\test\error.txt", error.ToString());
 
@@ -321,9 +330,9 @@ namespace TestApp
              */
 
 
-            validteDE32();
+            //validteDE32();
 
-            //processDir();
+            processDir(Constants.INVOICE_TYPE_UBL, Constants.UBL_VERSION_2_1);
 
             /*
             string ak = "12a12a";

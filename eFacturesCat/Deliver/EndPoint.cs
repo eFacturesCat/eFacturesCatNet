@@ -19,6 +19,15 @@ namespace eFacturesCat.Deliver
         public abstract DeliverResponse deliverInvoice(XMLInvoice xmlInvoice);
 
         /// <summary>
+        /// Method to deliverInvoice
+        /// </summary>
+        /// <param name="xmlInvoice">XmlInovice to be delivered</param>
+        /// <param name="invoiceType">Invoice type</param>
+        /// <param name="invoiceVersion">Invoice version</param>
+        /// <returns>Result of delivery</returns>
+        public abstract DeliverResponse deliverInvoice(XMLInvoice xmlInvoice, String invoiceType, String invoiceVersion);
+
+        /// <summary>
         /// Method to close session to EndPoint
         /// </summary>
         public abstract void close();

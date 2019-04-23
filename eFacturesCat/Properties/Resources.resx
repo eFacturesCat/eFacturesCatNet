@@ -130,4 +130,61 @@
   <data name="UtilitiesExtension" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UtilitiesExtension.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Facturaev3_2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Facturaev3_2_2.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Facturaev3_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Facturaev3_2_1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="xmldsig_core_schema" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmldsig-core-schema.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_Invoice_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UBL-Invoice-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CCTS_CCT_SchemaModule_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\CCTS_CCT_SchemaModule-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_CommonAggregateComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-CommonAggregateComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_CommonBasicComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-CommonBasicComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_CommonExtensionComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-CommonExtensionComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_CommonSignatureComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-CommonSignatureComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_CoreComponentParameters_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-CoreComponentParameters-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_ExtensionContentDataType_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-ExtensionContentDataType-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_Invoice_2_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UBL-Invoice-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_QualifiedDataTypes_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-QualifiedDataTypes-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_SignatureAggregateComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-SignatureAggregateComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_SignatureBasicComponents_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-SignatureBasicComponents-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_UnqualifiedDataTypes_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-UnqualifiedDataTypes-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_XAdESv132_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-XAdESv132-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_XAdESv141_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-XAdESv141-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UBL_xmldsig_core_schema_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commons\UBL-xmldsig-core-schema-2.1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>
